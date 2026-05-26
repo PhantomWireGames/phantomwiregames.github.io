@@ -68,7 +68,7 @@ const payload = {
 
 // Send to Discord
 const body = JSON.stringify(payload);
-const webhookUrl = new URL(process.env.DISCORD_WEBHOOK);
+const webhookUrl = new URL(process.env.DISCORD_WEBHOOK + '?wait=true');
 
 const options = {
   hostname: webhookUrl.hostname,
@@ -80,13 +80,54 @@ const options = {
   },
 };
 
+function publishMessage(channelId, messageId) {
+  const pubOptions = {
+    hostname: 'discord.com',
+    path: `/api/v10/channels/${channelId}/messages/${messageId}/crosspost`,
+    method: 'POST',
+    headers: {
+      'Authorization': `Bot ${process.env.DISCORD_BOT_TOKEN}`,
+      'Content-Length': 0,
+    },
+  };
+
+  const pubReq = https.request(pubOptions, pubRes => {
+    console.log(`Publish response: ${pubRes.statusCode}`);
+    if (pubRes.statusCode === 200) {
+      console.log('Message published successfully.');
+    } else {
+      console.error('Failed to publish message:', pubRes.statusCode);
+      process.exit(1);
+    }
+  });
+
+  pubReq.on('error', err => {
+    console.error('Publish request error:', err);
+    process.exit(1);
+  });
+
+  pubReq.end();
+}
+
 const req = https.request(options, res => {
   console.log(`Discord response: ${res.statusCode}`);
   if (res.statusCode === 204) {
     console.log('Announcement sent successfully.');
   } else {
-    console.error('Unexpected status code:', res.statusCode);
-    process.exit(1);
+    // Read body to get message ID for publishing
+    let body = '';
+    res.on('data', chunk => { body += chunk; });
+    res.on('end', () => {
+      try {
+        const msg = JSON.parse(body);
+        if (msg.id && msg.channel_id) {
+          publishMessage(msg.channel_id, msg.id);
+        }
+      } catch (e) {
+        console.error('Could not parse response:', e);
+        process.exit(1);
+      }
+    });
   }
 });
 

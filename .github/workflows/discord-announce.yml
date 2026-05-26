@@ -19,5 +19,6 @@ jobs:
       - name: Send Discord announcement
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
         run: |
           node .github/scripts/discord-announce.js
