@@ -14,6 +14,21 @@
       "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": true,
       "url": "/pages/news/post.html?slug=nightshift-studio-launch"
+    },
+    {
+      "slug": "nightshift-devlog-00",
+      "title": "Devlog #00 - Initial Prototyping",
+      "date": "2025-10-12",
+      "dateDisplay": "12 October 2025",
+      "readTime": "5 min read",
+      "tag": "devlog",
+      "tagDisplay": "Devlog",
+      "game": "nightshift",
+      "excerpt": "Where the game started from and how the idea came along. Chaos Vehicles, art style exploration, the original Crazy Taxi concept, and the pivot to a racing roguelite.",
+      "image": "/pages/news/posts/media/nightshift-thumb-00.png",
+      "imageFallback": "/pages/games/nightshift/TitleArt.png",
+      "featured": false,
+      "url": "/pages/news/post.html?slug=nightshift-devlog-00"
     }
   ]
 }
