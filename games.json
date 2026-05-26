@@ -1,0 +1,34 @@
+{
+  "games": [
+    {
+      "slug": "nightshift",
+      "title": "Nightshift",
+      "genre": "Street Racing Roguelite",
+      "status": "In Development",
+      "tags": ["Unreal Engine 5", "PC", "In Development"],
+      "description": "A roguelite underground racing tournament. Start at rank #1000, survive eliminations, build perk combinations, and defeat named rival legends on your way to #1.",
+      "image": "/pages/games/nightshift/Banner.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
+      "thumb": "/pages/games/nightshift/TitleArt.webp",
+      "thumbFallback": "/pages/games/nightshift/TitleArt.png",
+      "url": "/pages/games/nightshift/nightshift.html",
+      "released": false,
+      "featured": true
+    },
+    {
+      "slug": "tba",
+      "title": "TBA 2027",
+      "genre": "In Development",
+      "status": "Unannounced",
+      "tags": [],
+      "description": "Something new is being built. Stay tuned.",
+      "image": null,
+      "imageFallback": null,
+      "thumb": null,
+      "thumbFallback": null,
+      "url": null,
+      "released": false,
+      "featured": false
+    }
+  ]
+}

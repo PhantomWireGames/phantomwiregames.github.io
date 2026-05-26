@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nightshift - PhantomWire</title>
+  <meta name="description" content="A roguelite street racing tournament. 1000 ranked racers. Procedural routes. Perk builds. Named rivals. Start at the bottom - if you want the top, you have to earn it." />
+  <link rel="stylesheet" href="../../../style.css" />
+  <style>.placeholder-img { width:100%; height:100%; object-fit:cover; display:block; }</style>
+  <meta property="og:type" content="game"/>
+  <meta property="og:url" content="https://www.phantomwiregames.com/pages/games/nightshift/nightshift.html"/>
+  <meta property="og:title" content="Nightshift - PhantomWire"/>
+  <meta property="og:description" content="A roguelite street racing tournament. 1000 ranked racers. Procedural routes. Perk builds. Named rivals. Start at the bottom."/>
+  <meta property="og:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <meta property="og:site_name" content="PhantomWire"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Nightshift - PhantomWire"/>
+  <meta name="twitter:description" content="A roguelite street racing tournament. 1000 ranked racers. Procedural routes. Perk builds. Named rivals. Start at the bottom."/>
+  <meta name="twitter:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+</head>
+<body data-page="nightshift">
+
+<div id="nav-placeholder"></div>
+
+<a class="back-btn" href="../../games.html">← Back to Games</a>
+
+<div class="game-hero">
+  <div class="game-hero-bg">
+    <img src="Banner.webp" onerror="this.src='Banner.png'" alt="Nightshift hero art" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" />
+  </div>
+  <div class="game-hero-overlay"></div>
+  <div class="game-hero-content">
+    <div class="game-platform-tags">
+      <div class="tag">PC</div>
+      <div class="tag">Unreal Engine 5</div>
+      <div class="tag">In Development</div>
+    </div>
+    <img src="TitleArt.webp" onerror="this.src='TitleArt.png'" alt="Nightshift" style="width:260px;max-width:50vw;filter:drop-shadow(0 4px 24px rgba(225,22,120,0.5));margin-bottom:8px;"/>
+    <p class="game-hero-tagline">A roguelite street racing tournament. 1000 ranked racers. Procedural routes. Perk builds. Named rivals. Start at the bottom - if you want the top, you have to earn it.</p>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:20px;width:100%;">
+      <div class="game-hero-actions" style="margin-top:0;">
+        <a class="btn btn-primary" href="#" onclick="showToast('Demo coming soon!')">Get the Demo →</a>
+        <a class="btn btn-outline" href="https://www.patreon.com/phantomwire" target="_blank">Support on Patreon</a>
+        <a class="btn btn-outline" href="#presskit-section">Press Kit ↓</a>
+      </div>
+      <!-- Steam store widget — replace 2835570 with Nightshift's App ID when live -->
+      <iframe
+        src="https://store.steampowered.com/widget/2835570/"
+        frameborder="0"
+        style="width:646px;max-width:min(646px,50vw);height:190px;flex-shrink:0;"
+        title="Steam store widget"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="game-content">
+  <div class="game-two-col fade-in">
+    <div>
+      <div class="section-label">About the Game</div>
+      <h2 class="section-title" style="font-size:clamp(32px,4vw,52px);">Race. Draft.<br/>Survive.</h2>
+      <div style="margin-top:24px;font-size:15px;line-height:1.85;color:var(--pw-white-dim);font-weight:300;">
+        <p>Nightshift drops you into an underground elimination circuit ranked by 1000 drivers. You start dead last. The city is procedurally generated every run - every route, every corner, every shortcut is different.</p>
+        <p style="margin-top:1em;">Between races, a perk draft system lets you shape your playstyle run by run. Go wide and aggressive, or surgical and precise - the meta is yours to build.</p>
+        <p style="margin-top:1em;">Six race event types. Thirty-one vehicles across three tiers. AI racers with their own tactics and aggression profiles. Every night is different. Every run pushes you closer to the top - or ends your streak.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px;">
+        <div style="background:var(--pw-dark-2);padding:24px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:8px;">Vehicles</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;">31</div>
+          <div style="font-size:13px;color:var(--pw-grey-light);">Across 3 tiers</div>
+        </div>
+        <div style="background:var(--pw-dark-2);padding:24px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:8px;">Ranked Drivers</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;">1,000</div>
+          <div style="font-size:13px;color:var(--pw-grey-light);">You start last</div>
+        </div>
+        <div style="background:var(--pw-dark-2);padding:24px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:8px;">Race Events</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;">6</div>
+          <div style="font-size:13px;color:var(--pw-grey-light);">Event types</div>
+        </div>
+        <div style="background:var(--pw-dark-2);padding:24px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:8px;">City</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;">PCG</div>
+          <div style="font-size:13px;color:var(--pw-grey-light);">Procedural every run</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Trailer</div>
+      <div class="video-wrapper">
+        <video controls poster="" style="width:100%;height:100%;display:block;object-fit:cover;">
+          <!-- Replace with your real trailer: <source src="trailer.mp4" type="video/mp4"> -->
+          <source src="https://lorem.video/1080p" type="video/mp4">
+        </video>
+      </div>
+      <div style="margin-top:32px;">
+        <div class="section-label">Key Features</div>
+        <div style="display:flex;flex-direction:column;gap:2px;margin-top:16px;">
+          <div style="background:var(--pw-dark-2);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:background 0.2s;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--pw-dark-3)';this.style.borderLeftColor='var(--pw-pink)'" onmouseleave="this.style.background='var(--pw-dark-2)';this.style.borderLeftColor='transparent'">
+            <img src="../../../assets/svgs/icons/podium.svg" style="width:24px;height:24px;filter:brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(295deg);flex-shrink:0;" alt=""/>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;">Elimination Tournament</div>
+              <div style="font-size:13px;color:var(--pw-grey-light);margin-top:2px;">1000 ranked racers. Every race cuts the bottom placers. Rivals keep climbing in the background. Constant pressure, emergent rivalries, natural stakes.</div>
+            </div>
+          </div>
+          <div style="background:var(--pw-dark-2);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:background 0.2s;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--pw-dark-3)';this.style.borderLeftColor='var(--pw-pink)'" onmouseleave="this.style.background='var(--pw-dark-2)';this.style.borderLeftColor='transparent'">
+            <img src="../../../assets/svgs/icons/cards.svg" style="width:24px;height:24px;filter:brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(295deg);flex-shrink:0;" alt=""/>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;">Perk Draft System</div>
+              <div style="font-size:13px;color:var(--pw-grey-light);margin-top:2px;">After each race, pick 1 of 3 random perks across 4 rarities - Common to Legendary. Build drift, NOS, combat, or slipstream-focused runs. No two runs play the same.</div>
+            </div>
+          </div>
+          <div style="background:var(--pw-dark-2);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:background 0.2s;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--pw-dark-3)';this.style.borderLeftColor='var(--pw-pink)'" onmouseleave="this.style.background='var(--pw-dark-2)';this.style.borderLeftColor='transparent'">
+            <img src="../../../assets/svgs/icons/pickup.svg" style="width:24px;height:24px;filter:brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(295deg);flex-shrink:0;" alt=""/>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;">In-Race Pickups</div>
+              <div style="font-size:13px;color:var(--pw-grey-light);margin-top:2px;">NOS Burst, EMP Pulse, Oil Slick, Shockwave, Repair Kit, Spike Strip and more. Active collectibles that add chaos and create combat racing moments mid-race.</div>
+            </div>
+          </div>
+          <div style="background:var(--pw-dark-2);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:background 0.2s;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--pw-dark-3)';this.style.borderLeftColor='var(--pw-pink)'" onmouseleave="this.style.background='var(--pw-dark-2)';this.style.borderLeftColor='transparent'">
+            <img src="../../../assets/svgs/icons/crown.svg" style="width:24px;height:24px;filter:brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(295deg);flex-shrink:0;" alt=""/>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;">Named Rival Bosses</div>
+              <div style="font-size:13px;color:var(--pw-grey-light);margin-top:2px;">Every 100 ranks, face a legend in a high-stakes 1v1 duel. The Wraith (#900), Voltage (#700), King Static (#500), Reiko (#300), Phantom (#100), Nightshift (#1).</div>
+            </div>
+          </div>
+          <div style="background:var(--pw-dark-2);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:background 0.2s;border-left:2px solid transparent;" onmouseenter="this.style.background='var(--pw-dark-3)';this.style.borderLeftColor='var(--pw-pink)'" onmouseleave="this.style.background='var(--pw-dark-2)';this.style.borderLeftColor='transparent'">
+            <img src="../../../assets/svgs/icons/wheel.svg" style="width:24px;height:24px;filter:brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(295deg);flex-shrink:0;" alt=""/>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;">Chaos Vehicle Physics</div>
+              <div style="font-size:13px;color:var(--pw-grey-light);margin-top:2px;">UE5 Chaos system with fluid semi-realistic arcade handling. Cel-shaded visuals inspired by NFS Underground, Tokyo Xtreme Racer, and Initial D.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREENSHOTS CAROUSEL -->
+  <div class="fade-in" style="margin-top:80px;">
+    <div class="section-label">Screenshots</div>
+    <div style="margin-top:24px;">
+      <div class="carousel" id="carousel-main">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide">
+            <img src="Banner.webp" onerror="this.src='Banner.png'" alt="Nightshift - Night Sprint" class="placeholder-img" />
+            <div class="carousel-slide-label">Eastbrook District - Night Sprint</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="TitleArt.webp" onerror="this.src='TitleArt.png'" alt="Nightshift - Title Art" class="placeholder-img" />
+            <div class="carousel-slide-label">Perk Draft - Between Races</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://placehold.co/900x506/0a0a0d/e11678?text=Screenshot+3+-+Elimination+Race" alt="Elimination race" class="placeholder-img" />
+            <div class="carousel-slide-label">Elimination Race - Rank 847</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://placehold.co/900x506/0d0820/e11678?text=Screenshot+4+-+Garage" alt="Garage" class="placeholder-img" />
+            <div class="carousel-slide-label">Garage - Vehicle Selection</div>
+          </div>
+        </div>
+        <button class="carousel-btn prev" onclick="carouselPrev()">‹</button>
+        <button class="carousel-btn next" onclick="carouselNext()">›</button>
+      </div>
+      <div class="carousel-dots" id="carousel-dots">
+        <div class="carousel-dot active" onclick="carouselGo(0)"></div>
+        <div class="carousel-dot" onclick="carouselGo(1)"></div>
+        <div class="carousel-dot" onclick="carouselGo(2)"></div>
+        <div class="carousel-dot" onclick="carouselGo(3)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYSTEM REQUIREMENTS -->
+  <div class="fade-in" style="margin-top:80px;">
+    <div class="section-label">System Requirements</div>
+    <h2 class="section-title" style="font-size:clamp(32px,4vw,52px);">PC Requirements</h2>
+    <p style="margin-top:16px;font-size:14px;color:var(--pw-grey-light);font-weight:300;max-width:600px;font-family:'Space Mono',monospace;letter-spacing:0.05em;">SPECIFICATIONS ARE PRELIMINARY AND SUBJECT TO CHANGE</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px;">
+
+      <!-- MINIMUM -->
+      <div style="background:var(--pw-dark-2);padding:40px;">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:24px;">Minimum</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">OS</div>
+            <div style="font-size:14px;font-weight:300;">Windows 10 64-bit</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">CPU</div>
+            <div style="font-size:14px;font-weight:300;">Intel Core i5-8600 / AMD Ryzen 5 2600</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">RAM</div>
+            <div style="font-size:14px;font-weight:300;">8 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">GPU</div>
+            <div style="font-size:14px;font-weight:300;">NVIDIA GTX 1060 6GB / AMD RX 580</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">VRAM</div>
+            <div style="font-size:14px;font-weight:300;">6 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">Storage</div>
+            <div style="font-size:14px;font-weight:300;">1 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">DirectX</div>
+            <div style="font-size:14px;font-weight:300;">Version 12</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECOMMENDED -->
+      <div style="background:var(--pw-dark-2);padding:40px;border-left:2px solid var(--pw-pink);">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--pw-pink);text-transform:uppercase;margin-bottom:24px;">Recommended</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">OS</div>
+            <div style="font-size:14px;font-weight:300;">Windows 11 64-bit</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">CPU</div>
+            <div style="font-size:14px;font-weight:300;">Intel Core i7-10700K / AMD Ryzen 7 5800X</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">RAM</div>
+            <div style="font-size:14px;font-weight:300;">16 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">GPU</div>
+            <div style="font-size:14px;font-weight:300;">NVIDIA RTX 3070 / AMD RX 6800 XT</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">VRAM</div>
+            <div style="font-size:14px;font-weight:300;">8 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">Storage</div>
+            <div style="font-size:14px;font-weight:300;">1 GB</div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--pw-grey-light);text-transform:uppercase;min-width:80px;padding-top:2px;">DirectX</div>
+            <div style="font-size:14px;font-weight:300;">Version 12</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRESS KIT -->
+  <div class="fade-in" id="presskit-section" style="margin-top:80px;">
+    <div class="section-label">Press &amp; Media</div>
+    <h2 class="section-title" style="font-size:clamp(32px,4vw,52px);">Press Kit</h2>
+    <p style="margin-top:16px;font-size:15px;color:var(--pw-white-dim);font-weight:300;max-width:600px;">Everything journalists, content creators, and streamers need to cover Nightshift.</p>
+    <div class="presskit-grid">
+      <a class="presskit-card" href="#" onclick="showToast('Press kit download coming soon!')">
+        <div class="presskit-icon">📦</div>
+        <div class="presskit-title">Full Press Kit</div>
+        <div class="presskit-desc">Logos, screenshots, key art, and brand assets in a single download.</div>
+      </a>
+      <a class="presskit-card" href="#" onclick="showToast('Fact sheet coming soon!')">
+        <div class="presskit-icon">📄</div>
+        <div class="presskit-title">Fact Sheet</div>
+        <div class="presskit-desc">Game details, studio info, platforms, pricing, and key dates.</div>
+      </a>
+      <a class="presskit-card" href="../../contact.html">
+        <div class="presskit-icon">✉</div>
+        <div class="presskit-title">Press Enquiries</div>
+        <div class="presskit-desc">For interviews, code requests, and media coverage - contact us directly.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- WISHLIST CTA -->
+  <div class="fade-in" style="margin-top:80px;background:var(--pw-dark-2);padding:64px;text-align:center;border-top:2px solid var(--pw-pink);position:relative;overflow:hidden;">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05;pointer-events:none" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 200 Q225 80 450 180 Q675 280 900 120 L900 300 L0 300Z" fill="#e11678"/>
+    </svg>
+    <div style="position:relative;z-index:1;">
+      <div class="section-label" style="justify-content:center;">Don't Miss Launch</div>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(40px,6vw,80px);text-transform:uppercase;line-height:0.95;">Wishlist<br/><span style="color:var(--pw-pink)">Nightshift</span></h2>
+      <p style="max-width:420px;margin:20px auto 36px;font-size:15px;color:var(--pw-white-dim);font-weight:300;line-height:1.7;">Add it to your Steam wishlist and be first to know when we launch.</p>
+      <a class="btn btn-primary" href="#" onclick="showToast('Steam page coming soon - follow our socials!')">Wishlist on Steam →</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../../../shared.js"></script>
+<script>
+let carouselIdx = 0;
+const carouselTotal = 4;
+function carouselGo(idx) {
+  carouselIdx = Math.max(0, Math.min(idx, carouselTotal - 1));
+  document.getElementById('carousel-track').style.transform = `translateX(-${carouselIdx * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === carouselIdx));
+}
+function carouselNext() { carouselGo((carouselIdx + 1) % carouselTotal); }
+function carouselPrev() { carouselGo((carouselIdx - 1 + carouselTotal) % carouselTotal); }
+setInterval(carouselNext, 5000);
+</script>
+</body>
+</html>

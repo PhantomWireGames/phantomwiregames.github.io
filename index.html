@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhantomWire - Indie Game Studio</title>
+  <meta name="description" content="PhantomWire is an indie game studio crafting street-soaked worlds and pulse-pounding experiences." />
+  <link rel="stylesheet" href="style.css" />
+  <style>.placeholder-img { width:100%; height:100%; object-fit:cover; display:block; }</style>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.phantomwiregames.com/"/>
+  <meta property="og:title" content="PhantomWire - Indie Game Studio"/>
+  <meta property="og:description" content="PhantomWire is an independent game studio crafting underground worlds with razor-sharp gameplay. Based in the UK."/>
+  <meta property="og:image" content="https://www.phantomwiregames.com/assets/images/PFP.png"/>
+  <meta property="og:site_name" content="PhantomWire"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="PhantomWire - Indie Game Studio"/>
+  <meta name="twitter:description" content="PhantomWire is an independent game studio crafting underground worlds with razor-sharp gameplay. Based in the UK."/>
+  <meta name="twitter:image" content="https://www.phantomwiregames.com/assets/images/PFP.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+</head>
+<body data-page="home">
+
+<!-- ── LOADING SCREEN ── -->
+<div id="loading-screen" style="
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;
+  background:#080808;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transition:opacity 0.6s ease;
+">
+  <img id="loading-icon" src="assets/svgs/LogoIcon.svg" alt="" style="width:min(160px,35vw);height:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(12px);transition:opacity 0.7s ease,transform 0.7s ease;"/>
+  <img id="loading-wordmark" src="assets/svgs/logo.svg" alt="PhantomWire" style="width:min(440px,75vw);height:auto;filter:brightness(0) invert(1);opacity:0;transform:translateY(8px);transition:opacity 0.6s ease,transform 0.6s ease;"/>
+</div>
+
+<div id="nav-placeholder"></div>
+
+<div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline style="object-fit:cover">
+    <source src="assets/videos/Showcase.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay"></div>
+  <div class="hero-bg"></div>
+  <button class="hero-video-btn" id="hero-video-btn" onclick="toggleHeroVideo()" aria-label="Pause video">
+    <svg id="hero-pause-icon" width="12" height="14" viewBox="0 0 12 14" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="4" height="14"/>
+      <rect x="8" y="0" width="4" height="14"/>
+    </svg>
+    <svg id="hero-play-icon" width="12" height="14" viewBox="0 0 12 14" fill="white" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+      <polygon points="0,0 12,7 0,14"/>
+    </svg>
+  </button>
+  <div class="hero-content">
+    <div class="hero-eyebrow">// Independent Game Studio - Est. 2024</div>
+    <h1 class="hero-title">Built<br/>In The<br/><span class="accent">Dark.</span></h1>
+    <p class="hero-sub">PhantomWire crafts underground worlds with razor-sharp gameplay. We make the kind of games you play at 2am and can't put down.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="pages/games.html">View Games <span>→</span></a>
+      <a class="btn btn-outline" href="pages/about.html">Our Studio</a>
+    </div>
+  </div>
+</div>
+
+<section class="fade-in">
+  <div class="section-label">Featured Games</div>
+  <h2 class="section-title">What We're Building</h2>
+  <div class="games-grid">
+    <a class="game-card" href="pages/games/nightshift/nightshift.html" style="text-decoration:none;">
+      <img class="game-card-img" src="pages/games/nightshift/TitleArt.webp" onerror="this.src='pages/games/nightshift/TitleArt.png'" alt="Nightshift key art" />
+      <div class="game-card-overlay"></div>
+      <div class="game-card-info">
+        <div class="game-card-genre">Street Racing Roguelite</div>
+        <div class="game-card-title">Nightshift</div>
+      </div>
+      <div class="game-card-arrow">→</div>
+    </a>
+    <div class="game-card" style="cursor:default;">
+      <div style="width:100%;height:100%;position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#111 100%);display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;padding:24px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.3em;color:#333;text-transform:uppercase;margin-bottom:12px;">Coming Soon</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;color:#2a2a2a;letter-spacing:0.05em;">Project Unknown</div>
+          <div style="width:32px;height:1px;background:#e11678;margin:16px auto 0;opacity:0.3;"></div>
+        </div>
+      </div>
+      <div class="game-card-overlay"></div>
+      <div class="game-card-info">
+        <div class="game-card-genre">In Development</div>
+        <div class="game-card-title">TBA 2027</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+  <div>
+    <div class="section-label">The Studio</div>
+    <h2 class="section-title">Small Team.<br/>Big Worlds.</h2>
+  </div>
+  <div>
+    <p style="font-size:17px;line-height:1.8;color:var(--pw-white-dim);font-weight:300;">PhantomWire is an indie studio built on the conviction that the best games come from obsession - not committee decisions. Every mechanic earns its place. Every frame matters.</p>
+    <a class="btn btn-outline" href="pages/about.html" style="margin-top:32px;">About The Studio</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="shared.js"></script>
+<script>
+// ── LOADING SCREEN ──────────────────────────────
+(function () {
+  const screen = document.getElementById('loading-screen');
+  const icon   = document.getElementById('loading-icon');
+  const word   = document.getElementById('loading-wordmark');
+
+  const seen = sessionStorage.getItem('pw-loaded');
+  if (seen) { screen.style.display = 'none'; return; }
+
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden'; // iOS Safari fix
+
+  setTimeout(() => { icon.style.opacity = '1'; icon.style.transform = 'translateY(0)'; }, 100);
+  setTimeout(() => { word.style.opacity = '1'; word.style.transform = 'translateY(0)'; }, 600);
+  setTimeout(() => {
+    screen.style.opacity = '0';
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    setTimeout(() => { screen.style.display = 'none'; sessionStorage.setItem('pw-loaded', '1'); }, 600);
+  }, 1800);
+})();
+
+// ── HERO VIDEO ──────────────────────────────────
+function toggleHeroVideo() {
+  const video = document.querySelector('.hero-video');
+  const pauseIcon = document.getElementById('hero-pause-icon');
+  const playIcon = document.getElementById('hero-play-icon');
+  if (video.paused) {
+    video.play();
+    pauseIcon.style.display = '';
+    playIcon.style.display = 'none';
+  } else {
+    video.pause();
+    pauseIcon.style.display = 'none';
+    playIcon.style.display = '';
+  }
+}
+</script>
+</body>
+</html>

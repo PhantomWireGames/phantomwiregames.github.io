@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading... - PhantomWire</title>
+  <link rel="stylesheet" href="../../style.css"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+  <style>
+    .post-hero {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+    }
+    .post-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.7);
+      display: block;
+    }
+    .post-hero-placeholder {
+      width: 100%; height: 100%;
+      background: var(--pw-dark-2);
+    }
+    .post-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+    .post-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .post-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pw-pink);
+      border: 1px solid rgba(225,22,120,0.4);
+      padding: 4px 10px;
+    }
+    .post-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--pw-grey-light);
+    }
+    .post-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 64px);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+    .post-content { color: var(--pw-white-dim); font-weight: 300; font-size: 16px; line-height: 1.85; }
+    .post-content p { margin-bottom: 1.5em; }
+    .post-content strong { color: var(--pw-white); font-weight: 500; }
+    .post-content em { font-style: italic; }
+    .post-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--pw-white);
+      margin: 48px 0 16px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .post-content h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--pw-white);
+      margin: 32px 0 12px;
+    }
+    .post-content ul, .post-content ol {
+      padding-left: 24px;
+      margin-bottom: 1.5em;
+    }
+    .post-content li { margin-bottom: 0.5em; }
+    .post-content a { color: var(--pw-pink); text-decoration: none; }
+    .post-content a:hover { text-decoration: underline; }
+    .post-content hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 48px 0;
+    }
+    .post-content blockquote {
+      border-left: 2px solid var(--pw-pink);
+      padding: 4px 0 4px 24px;
+      margin: 0 0 1.5em;
+      color: var(--pw-white-dim);
+    }
+    .post-content code {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      background: var(--pw-dark-3);
+      padding: 2px 6px;
+      color: var(--pw-pink);
+    }
+    .post-content pre {
+      background: var(--pw-dark-2);
+      padding: 24px;
+      overflow-x: auto;
+      margin-bottom: 1.5em;
+    }
+    .post-content pre code {
+      background: none;
+      padding: 0;
+      color: var(--pw-white-dim);
+    }
+    .post-content img {
+      max-width: 100%;
+      display: block;
+      margin: 32px 0;
+    }
+    .post-content video {
+      width: 100%;
+      display: block;
+      margin: 32px 0;
+      background: var(--pw-dark-2);
+    }
+    /* External links that wrap images (e.g. Bluesky posts) — style as a button */
+    .post-content a[href*="bsky.app"] {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pw-white);
+      background: var(--pw-dark-2);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 10px 20px;
+      text-decoration: none;
+      margin: 8px 0 24px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .post-content a[href*="bsky.app"]::before {
+      content: '↗';
+      color: var(--pw-pink);
+    }
+    .post-content a[href*="bsky.app"]:hover {
+      border-color: var(--pw-pink);
+      color: var(--pw-pink);
+      text-decoration: none;
+    }
+    /* Hide broken img inside bsky links */
+    .post-content a[href*="bsky.app"] img { display: none; }
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 64px;
+    }
+    .post-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pw-grey-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .post-nav a:hover { color: var(--pw-pink); }
+    .post-loading {
+      text-align: center;
+      padding: 120px 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--pw-grey);
+      text-transform: uppercase;
+    }
+    .post-error {
+      text-align: center;
+      padding: 120px 24px;
+    }
+    .post-error h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body data-page="news">
+
+<div id="nav-placeholder"></div>
+
+<div id="post-hero"></div>
+
+<div class="post-body">
+  <div id="post-meta" class="post-meta"></div>
+  <h1 id="post-title" class="post-title"></h1>
+  <div id="post-content" class="post-content">
+    <div class="post-loading">Loading post...</div>
+  </div>
+  <div class="post-nav">
+    <a href="/pages/news/news.html">&larr; All Posts</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script>
+// Allow raw HTML in markdown (needed for video tags, iframes etc.)
+marked.setOptions({ breaks: true });
+const renderer = new marked.Renderer();
+marked.use({ renderer });
+</script>
+<script src="../../shared.js"></script>
+<script>
+function parseFrontmatter(text) {
+  var result = { meta: {}, body: text };
+  if (!text.startsWith('---')) return result;
+  var end = text.indexOf('---', 3);
+  if (end === -1) return result;
+  var block = text.slice(3, end).trim();
+  var body = text.slice(end + 3).trim();
+  var meta = {};
+  block.split('\n').forEach(function(line) {
+    var colon = line.indexOf(':');
+    if (colon === -1) return;
+    var key = line.slice(0, colon).trim();
+    var val = line.slice(colon + 1).trim().replace(/^["']|["']$/g, '');
+    meta[key] = val;
+  });
+  return { meta: meta, body: body };
+}
+
+function loadPost() {
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug');
+
+  if (!slug) {
+    showError('No post specified.');
+    return;
+  }
+
+  fetch('/pages/news/posts/' + slug + '.md')
+    .then(function(r) {
+      if (!r.ok) throw new Error('Not found');
+      return r.text();
+    })
+    .then(function(text) {
+      var parsed = parseFrontmatter(text);
+      var meta = parsed.meta;
+      var body = parsed.body;
+
+      // Update page title
+      document.title = (meta.title || 'Post') + ' - PhantomWire';
+
+      // Hero image
+      var heroEl = document.getElementById('post-hero');
+      if (meta.image) {
+        var img = document.createElement('img');
+        img.src = meta.image;
+        img.alt = meta.title || '';
+        if (meta.imageFallback) {
+          img.onerror = function() { this.src = meta.imageFallback; };
+        }
+        var heroDiv = document.createElement('div');
+        heroDiv.className = 'post-hero';
+        heroDiv.appendChild(img);
+        heroEl.appendChild(heroDiv);
+      }
+
+      // Meta row
+      var metaEl = document.getElementById('post-meta');
+      if (meta.tagDisplay) {
+        var tag = document.createElement('span');
+        tag.className = 'post-tag';
+        tag.textContent = meta.tagDisplay;
+        metaEl.appendChild(tag);
+      }
+      if (meta.dateDisplay) {
+        var date = document.createElement('span');
+        date.className = 'post-date';
+        date.textContent = meta.dateDisplay + (meta.readTime ? ' · ' + meta.readTime : '');
+        metaEl.appendChild(date);
+      }
+
+      // Title
+      document.getElementById('post-title').textContent = meta.title || '';
+
+      // Body — render markdown
+      document.getElementById('post-content').innerHTML = marked.parse(body);
+    })
+    .catch(function() {
+      showError('Post not found.');
+    });
+}
+
+function showError(msg) {
+  document.getElementById('post-content').innerHTML =
+    '<div class="post-error">' +
+      '<h1>Not Found</h1>' +
+      '<p style="color:var(--pw-white-dim);font-weight:300;">' + msg + '</p>' +
+      '<a class="btn btn-outline" href="/pages/news/news.html" style="margin-top:32px;display:inline-flex;">Back to News</a>' +
+    '</div>';
+}
+
+loadPost();
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - PhantomWire</title>
+  <meta name="description" content="Get in touch with PhantomWire - player feedback, press enquiries, or business." />
+  <link rel="stylesheet" href="../style.css" />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.phantomwiregames.com/pages/contact.html"/>
+  <meta property="og:title" content="Contact - PhantomWire"/>
+  <meta property="og:description" content="Get in touch with PhantomWire for press, business or general enquiries."/>
+  <meta property="og:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <meta property="og:site_name" content="PhantomWire"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Contact - PhantomWire"/>
+  <meta name="twitter:description" content="Get in touch with PhantomWire for press, business or general enquiries."/>
+  <meta name="twitter:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+</head>
+<body data-page="contact">
+
+<div id="nav-placeholder"></div>
+
+<section>
+  <div class="section-label">Get In Touch</div>
+  <h1 class="section-title">Let's <span style="color:var(--pw-pink)">Talk.</span></h1>
+  <div class="contact-grid fade-in">
+    <div>
+      <p style="font-size:16px;line-height:1.8;color:var(--pw-white-dim);font-weight:300;margin-bottom:40px;">Whether you're a player with feedback, a journalist wanting to cover Nightshift, or someone interested in working together - we'd love to hear from you.</p>
+      <div class="contact-info-item">
+        <div class="contact-info-label">General Enquiries</div>
+        <div class="contact-info-value"><a href="mailto:hello@phantomwiregames.com">hello@phantomwiregames.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Press &amp; Media</div>
+        <div class="contact-info-value"><a href="mailto:press@phantomwiregames.com">press@phantomwiregames.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Business</div>
+        <div class="contact-info-value"><a href="mailto:business@phantomwiregames.com">business@phantomwiregames.com</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Social</div>
+        <div class="contact-info-value" style="display:flex;gap:16px;margin-top:4px;">
+          <a href="#">Twitter/X</a><a href="#">Discord</a><a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Last name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <select class="form-input" style="cursor:pointer;appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22><path fill=%22%23888%22 d=%22M7 10l5 5 5-5z%22/></svg>');background-repeat:no-repeat;background-position:right 12px center;">
+            <option value="">Select a subject</option>
+            <option>General Enquiry</option>
+            <option>Press / Media</option>
+            <option>Business Enquiry</option>
+            <option>Bug Report</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="sendForm()" style="align-self:flex-start;">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News & Devlog - PhantomWire</title>
+  <meta name="description" content="Development updates, devlogs, and news from PhantomWire."/>
+  <link rel="stylesheet" href="../../style.css"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.phantomwiregames.com/pages/news/news.html"/>
+  <meta property="og:title" content="News & Devlog - PhantomWire"/>
+  <meta property="og:description" content="Development updates, devlogs, and news from PhantomWire."/>
+  <meta property="og:image" content="https://www.phantomwiregames.com/assets/images/PFP.png"/>
+  <meta property="og:site_name" content="PhantomWire"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="News & Devlog - PhantomWire"/>
+  <meta name="twitter:description" content="Development updates, devlogs, and news from PhantomWire."/>
+  <meta name="twitter:image" content="https://www.phantomwiregames.com/assets/images/PFP.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+  <style>
+    .news-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:2px; margin-top:2px; }
+    .news-card { background:var(--pw-dark-2); text-decoration:none; color:var(--pw-white); display:flex; flex-direction:column; transition:background 0.2s; border-top:2px solid transparent; }
+    .news-card:hover { background:var(--pw-dark-3); border-top-color:var(--pw-pink); }
+    .news-card-thumb { width:100%; aspect-ratio:16/9; overflow:hidden; background:var(--pw-dark-3); position:relative; }
+    .news-card-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+    .news-card:hover .news-card-thumb img { transform:scale(1.04); }
+    .news-card-thumb-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--pw-dark-2),var(--pw-dark-4)); }
+    .news-card-body { padding:28px 32px 32px; flex:1; display:flex; flex-direction:column; }
+    .news-card-meta { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+    .news-card-tag { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--pw-pink); }
+    .news-card-date { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--pw-grey-light); }
+    .news-card-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:22px; text-transform:uppercase; letter-spacing:0.02em; line-height:1.2; margin-bottom:10px; }
+    .news-card-excerpt { font-size:14px; line-height:1.7; color:var(--pw-white-dim); font-weight:300; flex:1; }
+    .news-card-read { margin-top:20px; font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--pw-pink); }
+    .news-featured { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:2px; background:var(--pw-dark-2); text-decoration:none; color:var(--pw-white); border-top:2px solid var(--pw-pink); transition:background 0.2s; }
+    .news-featured:hover { background:var(--pw-dark-3); }
+    .news-featured-thumb { aspect-ratio:16/9; overflow:hidden; background:var(--pw-dark-3); }
+    .news-featured-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+    .news-featured:hover .news-featured-thumb img { transform:scale(1.03); }
+    .news-featured-body { padding:48px; display:flex; flex-direction:column; justify-content:center; }
+    .news-featured-label { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:var(--pw-pink); margin-bottom:8px; }
+    .news-featured-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(28px,3vw,44px); text-transform:uppercase; line-height:1; margin-bottom:16px; }
+    .news-featured-excerpt { font-size:15px; line-height:1.75; color:var(--pw-white-dim); font-weight:300; margin-bottom:24px; }
+    .news-featured-meta { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--pw-grey-light); }
+    .news-filters { display:flex; gap:8px; flex-wrap:wrap; margin-top:32px; }
+    .news-filter-btn { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; padding:8px 18px; border:1px solid rgba(255,255,255,0.12); background:transparent; color:var(--pw-grey-light); cursor:pointer; transition:all 0.2s; }
+    .news-filter-btn:hover { border-color:var(--pw-pink); color:var(--pw-white); }
+    .news-filter-btn.active { border-color:var(--pw-pink); color:var(--pw-pink); background:rgba(225,22,120,0.08); }
+    .news-card.hidden { display:none; }
+    @media (max-width:900px) {
+      .news-featured { grid-template-columns:1fr; }
+      .news-featured-body { padding:32px 24px; }
+      .news-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body data-page="news">
+
+<div id="nav-placeholder"></div>
+
+<section>
+  <div class="section-label">Latest Updates</div>
+  <h1 class="section-title">News & <span style="color:var(--pw-pink)">Devlog.</span></h1>
+  <p style="margin-top:16px;max-width:560px;font-size:16px;line-height:1.7;color:var(--pw-white-dim);font-weight:300;">Development updates, milestone posts, and behind-the-scenes from the studio. Updated as progress happens.</p>
+  <div class="news-filters">
+    <button class="news-filter-btn active" onclick="filterNews('all', this)">All</button>
+    <button class="news-filter-btn" onclick="filterNews('devlog', this)">Devlog</button>
+    <button class="news-filter-btn" onclick="filterNews('announcement', this)">Announcements</button>
+    <button class="news-filter-btn" onclick="filterNews('nightshift', this)">Nightshift</button>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div id="news-featured"></div>
+  <div class="news-grid" id="news-grid"></div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="../../shared.js"></script>
+<script>
+function renderFeatured(post) {
+  var el = document.getElementById('news-featured');
+  if (!post) return;
+  var a = document.createElement('a');
+  a.className = 'news-featured fade-in';
+  a.href = post.url || '#';
+  if (!post.url) a.onclick = function() { showToast('Coming soon!'); return false; };
+
+  var thumbHTML = post.image
+    ? '<img src="' + post.image + '" alt="' + post.title + '"' + (post.imageFallback ? ' onerror="this.src=\'' + post.imageFallback + '\'"' : '') + '/>'
+    : '<img src="/assets/svgs/LogoIcon.svg" style="width:80px;opacity:0.15;filter:brightness(0) invert(1);" alt=""/>';
+
+  var readTime = post.readTime ? ' &middot; ' + post.readTime : '';
+
+  a.innerHTML =
+    '<div class="news-featured-thumb">' + thumbHTML + '</div>' +
+    '<div class="news-featured-body">' +
+      '<div class="news-featured-label">Featured &mdash; ' + post.tagDisplay + '</div>' +
+      '<div class="news-featured-title">' + post.title + '</div>' +
+      '<div class="news-featured-excerpt">' + post.excerpt + '</div>' +
+      '<div class="news-featured-meta">' + post.dateDisplay + readTime + '</div>' +
+    '</div>';
+
+  el.appendChild(a);
+}
+
+function renderGrid(posts) {
+  var grid = document.getElementById('news-grid');
+  posts.forEach(function(post) {
+    var a = document.createElement('a');
+    a.className = 'news-card fade-in';
+    a.dataset.tag = (post.tag || '') + ' ' + (post.game || '');
+    a.href = post.url || '#';
+    if (!post.url) a.onclick = function() { showToast('Coming soon!'); return false; };
+
+    var thumbHTML = post.image
+      ? '<img src="' + post.image + '" alt="' + post.title + '"' + (post.imageFallback ? ' onerror="this.src=\'' + post.imageFallback + '\'"' : '') + '/>'
+      : '<div class="news-card-thumb-placeholder"><img src="/assets/svgs/LogoIcon.svg" style="width:48px;opacity:0.15;filter:brightness(0) invert(1);" alt=""/></div>';
+
+    a.innerHTML =
+      '<div class="news-card-thumb">' + thumbHTML + '</div>' +
+      '<div class="news-card-body">' +
+        '<div class="news-card-meta">' +
+          '<span class="news-card-tag">' + post.tagDisplay + '</span>' +
+          '<span class="news-card-date">' + post.dateDisplay + '</span>' +
+        '</div>' +
+        '<div class="news-card-title">' + post.title + '</div>' +
+        '<div class="news-card-excerpt">' + post.excerpt + '</div>' +
+        '<div class="news-card-read"' + (post.url ? '' : ' style="color:var(--pw-grey-light)"') + '>' + (post.url ? 'Read More &rarr;' : 'Coming Soon') + '</div>' +
+      '</div>';
+
+    grid.appendChild(a);
+  });
+}
+
+function filterNews(tag, btn) {
+  document.querySelectorAll('.news-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.news-card[data-tag]').forEach(function(card) {
+    card.classList.toggle('hidden', tag !== 'all' && !card.dataset.tag.includes(tag));
+  });
+}
+
+fetch('/news.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var featured = data.posts.find(function(p) { return p.featured; });
+    var rest = data.posts.filter(function(p) { return !p.featured; });
+    renderFeatured(featured);
+    renderGrid(rest);
+    if (typeof initFadeIns === 'function') initFadeIns();
+  });
+</script>
+</body>
+</html>

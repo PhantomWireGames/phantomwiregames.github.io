@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Games - PhantomWire</title>
+  <meta name="description" content="Every title from PhantomWire is built from the ground up with a strong identity and purposeful design."/>
+  <link rel="stylesheet" href="../style.css"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.phantomwiregames.com/pages/games.html"/>
+  <meta property="og:title" content="Games - PhantomWire"/>
+  <meta property="og:description" content="Every title from PhantomWire is built from the ground up with a strong identity and purposeful design."/>
+  <meta property="og:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <meta property="og:site_name" content="PhantomWire"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Games - PhantomWire"/>
+  <meta name="twitter:description" content="Every title from PhantomWire is built from the ground up with a strong identity and purposeful design."/>
+  <meta name="twitter:image" content="https://www.phantomwiregames.com/pages/games/nightshift/Banner.png"/>
+  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+</head>
+<body data-page="games">
+
+<div id="nav-placeholder"></div>
+
+<section>
+  <div class="section-label">Our Portfolio</div>
+  <h1 class="section-title">The Games <span style="color:var(--pw-pink)">We Make.</span></h1>
+  <p style="margin-top:24px;max-width:1000px;font-size:16px;line-height:1.7;color:var(--pw-white-dim);font-weight:300;">Every title from PhantomWire is built from the ground up with a strong identity and purposeful design.<br/><span style="color:var(--pw-pink)">Click a game to explore it fully.</span></p>
+</section>
+
+<section style="padding-top:0;">
+  <div id="games-featured"></div>
+  <div id="games-other"></div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="../shared.js"></script>
+<script>
+function renderFeaturedGame(game) {
+  var el = document.getElementById('games-featured');
+  if (!game) return;
+
+  var a = document.createElement('a');
+  a.href = game.url || '#';
+  a.style.cssText = 'text-decoration:none;cursor:pointer;display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;';
+  a.className = 'fade-in games-featured-card';
+
+  var imgHTML = game.image
+    ? '<img src="' + game.image + '" alt="' + game.title + ' banner"' +
+      (game.imageFallback ? ' onerror="this.src=\'' + game.imageFallback + '\'"' : '') +
+      ' style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s;"' +
+      ' onmouseenter="this.style.transform=\'scale(1.05)\'" onmouseleave="this.style.transform=\'scale(1)\'"/>'
+    : '';
+
+  var tagsHTML = game.tags.map(function(t) { return '<div class="tag">' + t + '</div>'; }).join('');
+
+  a.innerHTML =
+    '<div style="position:relative;aspect-ratio:16/9;overflow:hidden;" class="games-featured-img">' +
+      imgHTML +
+      '<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,0.5) 0%,transparent 50%);pointer-events:none;"></div>' +
+      '<div style="position:absolute;bottom:20px;right:20px;border:1px solid rgba(225,22,120,0.4);width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:var(--pw-pink);font-size:18px;">&rarr;</div>' +
+    '</div>' +
+    '<div style="background:var(--pw-dark-2);padding:48px;display:flex;flex-direction:column;justify-content:center;transition:background 0.25s;"' +
+      ' onmouseenter="this.style.background=\'var(--pw-dark-3)\'" onmouseleave="this.style.background=\'var(--pw-dark-2)\'">' +
+      '<div class="section-label" style="margin-bottom:12px;">' + game.genre + '</div>' +
+      '<h2 style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:52px;text-transform:uppercase;line-height:0.95;letter-spacing:-0.01em;">' + game.title + '</h2>' +
+      '<p style="margin-top:20px;font-size:15px;line-height:1.7;color:var(--pw-white-dim);font-weight:300;max-width:440px;">' + game.description + '</p>' +
+      '<div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap;">' + tagsHTML + '</div>' +
+      '<div style="margin-top:32px;"><span class="btn btn-primary" style="display:inline-flex;">View Game &rarr;</span></div>' +
+    '</div>';
+
+  el.appendChild(a);
+}
+
+function renderOtherGames(games) {
+  var el = document.getElementById('games-other');
+  games.forEach(function(game) {
+    var div = document.createElement('div');
+    div.className = 'fade-in';
+    div.style.cssText = 'background:var(--pw-dark-2);padding:48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.04);';
+    div.innerHTML =
+      '<div>' +
+        '<div style="font-family:\'Space Mono\',monospace;font-size:10px;letter-spacing:0.25em;color:var(--pw-grey);text-transform:uppercase;margin-bottom:12px;">' + game.status + '</div>' +
+        '<h2 style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:40px;text-transform:uppercase;color:var(--pw-dark-4);letter-spacing:0.02em;">' + game.title + '</h2>' +
+        '<p style="margin-top:12px;font-size:14px;color:var(--pw-grey);font-weight:300;">' + game.description + '</p>' +
+      '</div>' +
+      '<div style="font-family:\'Barlow Condensed\',sans-serif;font-size:72px;font-weight:900;color:var(--pw-dark-4);line-height:1;">?</div>';
+    el.appendChild(div);
+  });
+}
+
+fetch('/games.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var featured = data.games.find(function(g) { return g.featured; });
+    var rest = data.games.filter(function(g) { return !g.featured; });
+    renderFeaturedGame(featured);
+    renderOtherGames(rest);
+    if (typeof initFadeIns === 'function') initFadeIns();
+  });
+</script>
+</body>
+</html>
