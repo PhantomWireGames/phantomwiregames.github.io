@@ -99,9 +99,10 @@ function publishMessage(channelId, messageId) {
     console.log(`Publish response: ${pubRes.statusCode}`);
     if (pubRes.statusCode === 200) {
       console.log('Message published successfully.');
+    } else if (pubRes.statusCode === 403) {
+      console.log('Crosspost returned 403 - check bot has Manage Messages permission in the channel.');
     } else {
       console.error('Failed to publish message:', pubRes.statusCode);
-      process.exit(1);
     }
   });
 

@@ -16,6 +16,9 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Wait for GitHub Pages to deploy
+        run: sleep 60
+
       - name: Send Discord announcement
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
