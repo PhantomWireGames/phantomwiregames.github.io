@@ -44,6 +44,21 @@
       "imageFallback": "/pages/news/posts/media/nightshift-thumb-01.jpg",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-01"
+    },
+    {
+      "slug": "nightshift-devlog-02",
+      "title": "Devlog #02 - PCG City Generation",
+      "date": "2026-05-01",
+      "dateDisplay": "8 May 2026",
+      "readTime": "4 min read",
+      "tag": "devlog",
+      "tagDisplay": "Devlog",
+      "game": "nightshift",
+      "excerpt": "Road network PCG, a break, city generation stress tests, and a major scope decision - from December 2025 through to May 2026.",
+      "image": "/pages/news/posts/media/nightshift-thumb-02.jpg",
+      "imageFallback": "/pages/news/posts/media/nightshift-thumb-02.jpg",
+      "featured": false,
+      "url": "/pages/news/post.html?slug=nightshift-devlog-02"
     }
   ]
 }
