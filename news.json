@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "slug": "nightshift-studio-launch",
+      "title": "PhantomWire is Open. Nightshift is in Development.",
+      "date": "2025-05-25",
+      "dateDisplay": "25 May 2025",
+      "readTime": "3 min read",
+      "tag": "announcement",
+      "tagDisplay": "Announcement",
+      "game": "nightshift",
+      "excerpt": "The studio is officially open. We're building Nightshift - a roguelite street racing tournament set in the underground circuit world of 90s/early 00s racing. Here's what that means and where we are.",
+      "image": "/pages/games/nightshift/Banner.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
+      "featured": true,
+      "url": "/pages/news/post.html?slug=nightshift-studio-launch"
     }
   ]
 }
