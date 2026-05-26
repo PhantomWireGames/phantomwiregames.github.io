@@ -1,0 +1,23 @@
+name: Discord Announcement
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'news.json'
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Send Discord announcement
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          node .github/scripts/discord-announce.js
