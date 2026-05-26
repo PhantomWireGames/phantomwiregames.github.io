@@ -85,6 +85,14 @@ While core vehicle and race systems were being built out, several other areas go
 
 <video src="posts/media/pcg-roads-traffic.mp4" controls loop muted playsinline></video>
 
+## Vehicle Customisation System
+ 
+A full vehicle customisation system was built as a final university project - paint colour, metallic finish, decals, wheel selection, and liveries. The system uses the same second UV channel material setup described above, driven entirely through runtime material parameter changes with no texture swaps needed.
+ 
+The plan is to bring this system fully into Nightshift. It's already proven out in a standalone build, which means less work from scratch when the time comes.
+ 
+<video src="posts/media/vehicle-customisation.mp4" controls loop muted playsinline></video>
+
 ## August 2025 - UE5.4 to UE5.6
 
 Before the pivot, an engine upgrade was done - UE5.4 to UE5.6. This was a good forcing function to refactor a lot of the early Blueprint code that had accumulated technical debt. A significant chunk was moved to C++, cleaned up, and structured properly. The codebase is in a much better state for it.
