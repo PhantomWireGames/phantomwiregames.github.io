@@ -81,6 +81,10 @@ const options = {
 };
 
 function publishMessage(channelId, messageId) {
+  if (!process.env.DISCORD_BOT_TOKEN) {
+    console.log('No bot token set — skipping auto-publish.');
+    return;
+  }
   const pubOptions = {
     hostname: 'discord.com',
     path: `/api/v10/channels/${channelId}/messages/${messageId}/crosspost`,
@@ -113,7 +117,7 @@ const req = https.request(options, res => {
   console.log(`Discord response: ${res.statusCode}`);
   if (res.statusCode === 204) {
     console.log('Announcement sent successfully.');
-  } else {
+  } else if (res.statusCode === 200) {
     // Read body to get message ID for publishing
     let body = '';
     res.on('data', chunk => { body += chunk; });
@@ -125,9 +129,11 @@ const req = https.request(options, res => {
         }
       } catch (e) {
         console.error('Could not parse response:', e);
-        process.exit(1);
       }
     });
+  } else {
+    console.error('Unexpected status code:', res.statusCode);
+    process.exit(1);
   }
 });
 
