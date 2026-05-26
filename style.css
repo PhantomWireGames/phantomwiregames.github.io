@@ -877,7 +877,7 @@ footer {
 }
 .footer-col a:hover { color: var(--pw-white); }
 .footer-bottom {
-  padding: 24px 100px;
+  padding: 24px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1068,4 +1068,5 @@ footer {
 @media (max-width: 900px) {
   .cookie-banner { padding: 20px 24px; }
   .cookie-banner-text { font-size: 12px; }
+  #home-featured-post a { grid-template-columns: 1fr !important; }
 }

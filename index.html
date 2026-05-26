@@ -107,10 +107,53 @@
   </div>
 </section>
 
+<hr class="divider"/>
+
+<section class="fade-in">
+  <div class="section-label">Latest From The Studio</div>
+  <h2 class="section-title">Dev<span style="color:var(--pw-pink)">log.</span></h2>
+  <div id="home-featured-post" style="margin-top:40px;"></div>
+  <div style="margin-top:24px;">
+    <a class="btn btn-outline" href="pages/news/news.html">All Posts →</a>
+  </div>
+</section>
+
 <div id="footer-placeholder"></div>
 
 <script src="shared.js"></script>
 <script>
+// ── FEATURED NEWS POST ──────────────────────────
+fetch('/news.json')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var post = data.posts.find(function(p) { return p.featured && p.url; });
+    if (!post) return;
+
+    var el = document.getElementById('home-featured-post');
+    var a = document.createElement('a');
+    a.href = post.url;
+    a.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:2px;text-decoration:none;color:var(--pw-white);background:var(--pw-dark-2);border-top:2px solid var(--pw-pink);transition:background 0.2s;';
+    a.onmouseenter = function() { this.style.background = 'var(--pw-dark-3)'; };
+    a.onmouseleave = function() { this.style.background = 'var(--pw-dark-2)'; };
+
+    var imgHTML = post.image
+      ? '<img src="' + post.image + '" ' + (post.imageFallback ? 'onerror="this.src=\'' + post.imageFallback + '\'"' : '') + ' style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseenter="this.style.transform=\'scale(1.03)\'" onmouseleave="this.style.transform=\'scale(1)\'"/>'
+      : '';
+
+    var readTime = post.readTime ? ' &middot; ' + post.readTime : '';
+
+    a.innerHTML =
+      '<div style="aspect-ratio:16/9;overflow:hidden;background:var(--pw-dark-3);">' + imgHTML + '</div>' +
+      '<div style="padding:48px;display:flex;flex-direction:column;justify-content:center;">' +
+        '<div style="font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--pw-pink);margin-bottom:12px;">' + post.tagDisplay + '</div>' +
+        '<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:900;font-size:clamp(24px,3vw,40px);text-transform:uppercase;line-height:1;margin-bottom:16px;">' + post.title + '</div>' +
+        '<div style="font-size:14px;line-height:1.7;color:var(--pw-white-dim);font-weight:300;margin-bottom:20px;">' + post.excerpt + '</div>' +
+        '<div style="font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:0.15em;color:var(--pw-grey-light);">' + post.dateDisplay + readTime + '</div>' +
+      '</div>';
+
+    el.appendChild(a);
+  });
+
 // ── LOADING SCREEN ──────────────────────────────
 (function () {
   const screen = document.getElementById('loading-screen');
