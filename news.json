@@ -1,64 +1,6 @@
 {
   "posts": [
     {
-      "slug": "nightshift-studio-launch",
-      "title": "PhantomWire is Open. Nightshift is in Development.",
-      "date": "2025-05-25",
-      "dateDisplay": "25 May 2025",
-      "readTime": "3 min read",
-      "tag": "announcement",
-      "tagDisplay": "Announcement",
-      "game": "nightshift",
-      "excerpt": "The studio is officially open. We're building Nightshift - a roguelite street racing tournament set in the underground circuit world of 90s/early 00s racing. Here's what that means and where we are.",
-      "image": "/pages/games/nightshift/Banner.webp",
-      "imageFallback": "/pages/games/nightshift/Banner.png",
-      "featured": true,
-      "url": "/pages/news/post.html?slug=nightshift-studio-launch"
-    },
-    {
-      "slug": "nightshift-devlog-00",
-      "title": "Devlog #00 - Initial Prototyping",
-      "date": "2025-10-12",
-      "dateDisplay": "12 October 2025",
-      "readTime": "5 min read",
-      "tag": "devlog",
-      "tagDisplay": "Devlog",
-      "game": "nightshift",
-      "excerpt": "Where the game started from and how the idea came along. Chaos Vehicles, art style exploration, the original Crazy Taxi concept, and the pivot to a racing roguelite.",
-      "image": "/pages/news/posts/media/nightshift-thumb-00.png",
-      "imageFallback": "/pages/games/nightshift/TitleArt.png",
-      "featured": false,
-      "url": "/pages/news/post.html?slug=nightshift-devlog-00"
-    },
-    {
-      "slug": "nightshift-devlog-01",
-      "title": "Devlog #01 - The Three Cs, Perks, Art Style & Custom Vehicles",
-      "date": "2025-12-07",
-      "dateDisplay": "7 December 2025",
-      "readTime": "6 min read",
-      "tag": "devlog",
-      "tagDisplay": "Devlog",
-      "game": "nightshift",
-      "excerpt": "From engine optimisation and the three Cs to the perk system, cel-shaded art style, custom vehicle import pipeline, and the start of AI research. October to December 2025.",
-      "image": "/pages/news/posts/media/nightshift-thumb-01.jpg",
-      "imageFallback": "/pages/news/posts/media/nightshift-thumb-01.jpg",
-      "featured": false,
-      "url": "/pages/news/post.html?slug=nightshift-devlog-01"
-    },
-    {
-      "slug": "nightshift-devlog-02",
-      "title": "Devlog #02 - PCG City Generation",
-      "date": "2026-05-01",
-      "dateDisplay": "8 May 2026",
-      "readTime": "4 min read",
-      "tag": "devlog",
-      "tagDisplay": "Devlog",
-      "game": "nightshift",
-      "excerpt": "Road network PCG, a break, city generation stress tests, and a major scope decision - from December 2025 through to May 2026.",
-      "image": "/pages/news/posts/media/nightshift-thumb-02.jpg",
-      "imageFallback": "/pages/news/posts/media/nightshift-thumb-02.jpg",
-      "featured": false,
-      "url": "/pages/news/post.html?slug=nightshift-devlog-02"
     }
   ]
 }
