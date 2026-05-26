@@ -29,6 +29,21 @@
       "imageFallback": "/pages/games/nightshift/TitleArt.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-00"
+    },
+    {
+      "slug": "nightshift-devlog-01",
+      "title": "Devlog #01 - The Three Cs, Perks, Art Style & Custom Vehicles",
+      "date": "2025-12-07",
+      "dateDisplay": "7 December 2025",
+      "readTime": "6 min read",
+      "tag": "devlog",
+      "tagDisplay": "Devlog",
+      "game": "nightshift",
+      "excerpt": "From engine optimisation and the three Cs to the perk system, cel-shaded art style, custom vehicle import pipeline, and the start of AI research. October to December 2025.",
+      "image": "/pages/news/posts/media/nightshift-thumb-01.jpg",
+      "imageFallback": "/pages/news/posts/media/nightshift-thumb-01.jpg",
+      "featured": false,
+      "url": "/pages/news/post.html?slug=nightshift-devlog-01"
     }
   ]
 }
