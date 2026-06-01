@@ -59,6 +59,21 @@
       "imageFallback": "/pages/news/posts/media/nightshift-thumb-02.jpg",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-02"
+    },
+    {
+      "slug": "nightshift-devlog-03",
+      "title": "Devlog #03 - The Rival System",
+      "date": "2026-06-01",
+      "dateDisplay": "1 June 2026",
+      "readTime": "5 min read",
+      "tag": "devlog",
+      "tagDisplay": "Devlog",
+      "game": "nightshift",
+      "excerpt": "The racer AI system and full race framework are in. Vehicle avoidance, pickup decisions, race state machine, checkpoint management, PreRace camera sequences, and more.",
+      "image": "/pages/news/posts/media/nightshift-thumb-03.png",
+      "imageFallback": "/pages/news/posts/media/nightshift-thumb-03.png",
+      "featured": true,
+      "url": "/pages/news/post.html?slug=nightshift-devlog-03"
     }
   ]
 }
