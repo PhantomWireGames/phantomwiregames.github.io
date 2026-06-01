@@ -72,7 +72,7 @@
       "excerpt": "The racer AI system and full race framework are in. Vehicle avoidance, pickup decisions, race state machine, checkpoint management, PreRace camera sequences, and more.",
       "image": "/pages/news/posts/media/nightshift-thumb-03.png",
       "imageFallback": "/pages/news/posts/media/nightshift-thumb-03.png",
-      "featured": true,
+      "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-03"
     }
   ]
