@@ -23,11 +23,11 @@ It's not glamorous work but it's the kind of thing that either causes headaches 
 
 When you cross the finish line, the first thing you see is your finishing position rendered as big graffiti spray text front and centre on screen. It's punchy and immediate in a way a plain number readout wouldn't be.
 
-![Player position reveal](posts/media/playerposition.webp)
+![Player position reveal](posts/media/PlayerPosition.webp)
 
 That fades out into the results screen, which lists every racer in finishing order with their final time. DNF entries are handled - any racer that didn't make it to the line shows as such rather than a ghost time at the bottom.
 
-![Race results screen](posts/media/results.webp)
+![Race results screen](posts/media/Results.webp)
 
 The ordering logic had a subtle bug worth mentioning: finished AI racers were still having their spline distance updated after crossing the line, which could push them ahead of the player in the internal position tracking even after the race was over. This will be fixed soon.
 
