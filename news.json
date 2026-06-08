@@ -74,6 +74,21 @@
       "imageFallback": "/pages/news/posts/media/nightshift-thumb-03.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-03"
+    },
+    {
+      "slug": "nightshift-devlog-04",
+      "title": "Devlog #04 - Perk Draft Screen & First Playable Loop",
+      "date": "2026-06-08",
+      "dateDisplay": "8 June 2026",
+      "readTime": "3 min read",
+      "tag": "devlog",
+      "tagDisplay": "Devlog",
+      "game": "nightshift",
+      "excerpt": "The perk draft screen is in, the UI framework got a full recode, and Nightshift now has a fully playable loop from title screen to race and back.",
+      "image": "/pages/news/posts/media/perk-draft-screen.webp",
+      "imageFallback": "/pages/news/posts/media/perk-draft-screen.webp",
+      "featured": false,
+      "url": "/pages/news/post.html?slug=nightshift-devlog-04"
     }
   ]
 }
