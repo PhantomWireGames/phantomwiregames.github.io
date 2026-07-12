@@ -12,7 +12,7 @@
       "excerpt": "The studio is officially open. We're building Nightshift - a roguelite street racing tournament set in the underground circuit world of 90s/early 00s racing. Here's what that means and where we are.",
       "image": "/pages/games/nightshift/Banner.webp",
       "imageFallback": "/pages/games/nightshift/Banner.png",
-      "featured": true,
+      "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-studio-launch"
     },
     {
@@ -25,14 +25,14 @@
       "tagDisplay": "Devlog",
       "game": "nightshift",
       "excerpt": "Where the game started from and how the idea came along. Chaos Vehicles, art style exploration, the original Crazy Taxi concept, and the pivot to a racing roguelite.",
-      "image": "/pages/news/posts/media/nightshift-thumb-00.png",
+      "image": "/pages/games/nightshift/TitleArt.webp",
       "imageFallback": "/pages/games/nightshift/TitleArt.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-00"
     },
     {
       "slug": "nightshift-devlog-01",
-      "title": "Devlog #01 - The Three Cs, Perks, Art Style & Custom Vehicles",
+      "title": "Devlog #01 - Building the Core Loop",
       "date": "2025-12-07",
       "dateDisplay": "7 December 2025",
       "readTime": "6 min read",
@@ -40,8 +40,8 @@
       "tagDisplay": "Devlog",
       "game": "nightshift",
       "excerpt": "From engine optimisation and the three Cs to the perk system, cel-shaded art style, custom vehicle import pipeline, and the start of AI research. October to December 2025.",
-      "image": "/pages/news/posts/media/nightshift-thumb-01.jpg",
-      "imageFallback": "/pages/news/posts/media/nightshift-thumb-01.jpg",
+      "image": "/pages/games/nightshift/Banner.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-01"
     },
@@ -49,14 +49,14 @@
       "slug": "nightshift-devlog-02",
       "title": "Devlog #02 - PCG City Generation",
       "date": "2026-05-01",
-      "dateDisplay": "8 May 2026",
+      "dateDisplay": "May 2026",
       "readTime": "4 min read",
       "tag": "devlog",
       "tagDisplay": "Devlog",
       "game": "nightshift",
       "excerpt": "Road network PCG, a break, city generation stress tests, and a major scope decision - from December 2025 through to May 2026.",
-      "image": "/pages/news/posts/media/nightshift-thumb-02.jpg",
-      "imageFallback": "/pages/news/posts/media/nightshift-thumb-02.jpg",
+      "image": "/pages/games/nightshift/Banner.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-02"
     },
@@ -70,8 +70,8 @@
       "tagDisplay": "Devlog",
       "game": "nightshift",
       "excerpt": "The racer AI system and full race framework are in. Vehicle avoidance, pickup decisions, race state machine, checkpoint management, PreRace camera sequences, and more.",
-      "image": "/pages/news/posts/media/nightshift-thumb-03.png",
-      "imageFallback": "/pages/news/posts/media/nightshift-thumb-03.png",
+      "image": "/pages/games/nightshift/Banner.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-03"
     },
@@ -86,9 +86,24 @@
       "game": "nightshift",
       "excerpt": "The perk draft screen is in, the UI framework got a full recode, and Nightshift now has a fully playable loop from title screen to race and back.",
       "image": "/pages/news/posts/media/perk-draft-screen.webp",
-      "imageFallback": "/pages/news/posts/media/perk-draft-screen.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": false,
       "url": "/pages/news/post.html?slug=nightshift-devlog-04"
+    },
+    {
+      "slug": "reverse-engineering-splinter-cell-saves",
+      "title": "Reverse Engineering Splinter Cell's Save Format",
+      "date": "2026-07-12",
+      "dateDisplay": "12 July 2026",
+      "readTime": "6 min read",
+      "tag": "article",
+      "tagDisplay": "Article",
+      "game": null,
+      "excerpt": "A 2044 byte file, mostly uninitialised memory, and two fields that turned out to matter. How I found the difficulty and progress flags in Splinter Cell's profile format, and built an editor for them.",
+      "image": null,
+      "imageFallback": null,
+      "featured": true,
+      "url": "/pages/news/post.html?slug=reverse-engineering-splinter-cell-saves"
     }
   ]
 }

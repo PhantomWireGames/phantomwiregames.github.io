@@ -25,6 +25,7 @@ const tagColours = {
   announcement: 0xe11678,  // pink
   devlog:       0x9b59b6,  // purple
   update:       0x3498db,  // blue
+  article:      0x1abc9c,  // teal
 };
 const colour = tagColours[post.tag] || 0xe11678;
 

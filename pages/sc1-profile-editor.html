@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Splinter Cell Profile Editor - Edit Difficulty, Permadeath & Progress</title>
+<meta name="description" content="A browser-based editor for Splinter Cell (2002) player profiles. Change difficulty, enable permadeath, and unlock campaign missions without a hex editor. Works with Enhanced SC."/>
+<meta name="keywords" content="Splinter Cell, profile editor, Config.ini, save editor, difficulty, permadeath, Enhanced SC, Splinter Cell 2002, save file, hex editor"/>
+<meta name="author" content="Nadeem Wali - PhantomWire"/>
+<link rel="canonical" href="https://phantomwiregames.github.io/pages/sc1-profile-editor.html"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://phantomwiregames.github.io/pages/sc1-profile-editor.html"/>
+<meta property="og:title" content="Splinter Cell Profile Editor"/>
+<meta property="og:description" content="Edit difficulty, permadeath, and mission progress in Splinter Cell (2002) player profiles. Runs entirely in the browser - no upload, no install."/>
+<meta property="og:image" content="https://phantomwiregames.github.io/assets/images/PFP.png"/>
+<meta property="og:site_name" content="PhantomWire"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Splinter Cell Profile Editor"/>
+<meta name="twitter:description" content="Edit difficulty, permadeath, and mission progress in Splinter Cell (2002) player profiles. Runs entirely in the browser."/>
+<meta name="twitter:image" content="https://phantomwiregames.github.io/assets/images/PFP.png"/>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Splinter Cell Profile Editor",
+  "description": "A browser-based editor for Splinter Cell (2002) player profiles. Change difficulty, enable permadeath, and unlock campaign missions without a hex editor.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+  "author": { "@type": "Person", "name": "Nadeem Wali", "url": "https://nadeemwali.com" },
+  "url": "https://phantomwiregames.github.io/pages/sc1-profile-editor.html",
+  "keywords": "Splinter Cell, save editor, profile editor, Config.ini, difficulty, permadeath"
+}
+</script>
+
+<link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico"/>
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>
+<style>
+  :root{
+    --void:#070b09;
+    --panel:#0d1411;
+    --line:#1d2b23;
+    --nv:#8fe36a;          /* night-vision phosphor */
+    --nv-dim:#3f6b34;
+    --thermal:#e8a33d;     /* warnings, permadeath */
+    --alarm:#e0503a;
+    --ghost:#6d8478;       /* muted body text */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #10241a 0%, var(--void) 60%),
+      var(--void);
+    color:var(--ghost);
+    font:14px/1.55 ui-monospace,"Cascadia Mono","Consolas","DejaVu Sans Mono",monospace;
+    padding:32px 20px 64px;
+    display:flex;justify-content:center;
+  }
+  /* faint scanlines: the goggle feed */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:5;
+    background:repeating-linear-gradient(0deg,rgba(143,227,106,.035) 0 1px,transparent 1px 3px);
+    mix-blend-mode:screen;
+  }
+  .wrap{width:100%;max-width:760px}
+
+  header{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+  .goggles{flex:none}
+  .lens{fill:#0a1a10;stroke:var(--nv-dim);stroke-width:1.5}
+  .glow{fill:var(--nv);opacity:.15;transition:opacity .5s ease}
+  .lit .glow{opacity:.9}
+  h1{
+    margin:0;color:var(--nv);
+    font-size:19px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;
+  }
+  .sub{margin:4px 0 0;font-size:12px;letter-spacing:.08em}
+
+  .drop{
+    border:1px dashed var(--nv-dim);background:rgba(143,227,106,.02);
+    border-radius:2px;padding:44px 24px;text-align:center;cursor:pointer;
+    transition:background .18s ease,border-color .18s ease;
+  }
+  .drop:hover,.drop.hot{background:rgba(143,227,106,.07);border-color:var(--nv)}
+  .drop strong{display:block;color:var(--nv);letter-spacing:.1em;text-transform:uppercase;font-size:13px;margin-bottom:6px}
+  .drop span{font-size:12px}
+  .drop:focus-visible{outline:2px solid var(--nv);outline-offset:3px}
+
+  .panel{
+    display:none;border:1px solid var(--line);background:var(--panel);
+    border-radius:2px;padding:0;overflow:hidden;
+  }
+  .panel.on{display:block}
+  .bar{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:12px 18px;border-bottom:1px solid var(--line);
+    background:rgba(143,227,106,.04);
+  }
+  .bar b{color:var(--nv);letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:600}
+  .bar em{font-style:normal;font-size:11px;letter-spacing:.06em}
+
+  .row{padding:20px 18px;border-bottom:1px solid var(--line)}
+  label.k{
+    display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--nv-dim);margin-bottom:10px;
+  }
+  input[type=text]{
+    width:100%;padding:10px 12px;background:#060a08;color:var(--nv);
+    border:1px solid var(--line);border-radius:2px;font:inherit;letter-spacing:.08em;
+  }
+  input[type=text]:focus{outline:none;border-color:var(--nv)}
+  .hint{font-size:11px;margin-top:8px;color:#4d6157}
+  a{color:var(--nv-dim);text-decoration:none;border-bottom:1px dotted var(--nv-dim)}
+  a:hover{color:var(--nv);border-bottom-color:var(--nv)}
+  a:focus-visible{outline:2px solid var(--nv);outline-offset:2px}
+
+  .seg{display:flex;gap:8px;flex-wrap:wrap}
+  .seg button{
+    flex:1;min-width:96px;padding:11px 8px;cursor:pointer;
+    background:#060a08;color:var(--ghost);border:1px solid var(--line);border-radius:2px;
+    font:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    transition:border-color .15s ease,color .15s ease,background .15s ease;
+  }
+  .seg button:hover{border-color:var(--nv-dim);color:var(--nv)}
+  .seg button[aria-pressed=true]{background:rgba(143,227,106,.12);border-color:var(--nv);color:var(--nv)}
+  .seg button:focus-visible{outline:2px solid var(--nv);outline-offset:2px}
+
+  .perma{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px}
+  .perma input{accent-color:var(--thermal);width:15px;height:15px}
+  .perma label{cursor:pointer;letter-spacing:.06em}
+  .perma.armed label{color:var(--thermal)}
+  .perma.off{opacity:.4;pointer-events:none}
+
+  /* signature: the light gauge, borrowed from the HUD, repurposed as progress */
+  .gauge{display:flex;gap:3px;margin:2px 0 12px}
+  .gauge i{
+    flex:1;height:26px;border:1px solid var(--line);border-radius:1px;background:#060a08;
+    transition:background .2s ease,border-color .2s ease,box-shadow .2s ease;
+  }
+  .gauge i.on{background:var(--nv);border-color:var(--nv);box-shadow:0 0 8px rgba(143,227,106,.45)}
+  .gauge i.max{background:var(--thermal);border-color:var(--thermal);box-shadow:0 0 8px rgba(232,163,61,.45)}
+  input[type=range]{width:100%;accent-color:var(--nv)}
+  .legend{display:flex;justify-content:space-between;font-size:11px;margin-top:6px}
+  .legend b{color:var(--nv);font-weight:600}
+  .mission{color:var(--nv);letter-spacing:.06em}
+
+  .foot{display:flex;align-items:center;gap:14px;padding:18px}
+  .save{
+    padding:13px 26px;cursor:pointer;background:var(--nv);color:#06120a;border:0;border-radius:2px;
+    font:inherit;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  }
+  .save:hover{background:#a6ef86}
+  .save:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .warn{font-size:11px;color:var(--thermal);flex:1}
+  .warn.quiet{color:#4d6157}
+
+  .hex{
+    display:flex;gap:20px;padding:11px 18px;border-top:1px solid var(--line);
+    background:#060a08;font-size:11px;color:#3c5148;letter-spacing:.05em;flex-wrap:wrap;
+  }
+  .hex b{color:var(--nv-dim);font-weight:400}
+  .err{color:var(--alarm);font-size:12px;margin-top:14px;display:none}
+  .err.on{display:block}
+  footer{margin-top:22px;font-size:11px;color:#3c5148;line-height:1.7}
+  footer code{color:var(--nv-dim)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <svg class="goggles" id="goggles" width="74" height="30" viewBox="0 0 74 30" aria-hidden="true">
+      <circle class="lens" cx="14" cy="15" r="10"/><circle class="glow" cx="14" cy="15" r="7"/>
+      <circle class="lens" cx="37" cy="15" r="10"/><circle class="glow" cx="37" cy="15" r="7"/>
+      <circle class="lens" cx="60" cy="15" r="10"/><circle class="glow" cx="60" cy="15" r="7"/>
+    </svg>
+    <div>
+      <h1>Profile Editor</h1>
+      <p class="sub">Splinter Cell (2002) &mdash; edits <code>Save\&lt;Profile&gt;\Config.ini</code></p>
+    </div>
+  </header>
+
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose a Config.ini file">
+    <strong>Drop Config.ini here</strong>
+    <span>or click to browse &mdash; nothing leaves your machine</span>
+  </div>
+  <input type="file" id="file" hidden>
+  <p class="err" id="err"></p>
+
+  <div class="panel" id="panel">
+    <div class="bar">
+      <b id="pname">&mdash;</b>
+      <em id="pmeta"></em>
+    </div>
+
+    <div class="row">
+      <label class="k" for="name">Codename</label>
+      <input type="text" id="name" maxlength="20" spellcheck="false" autocomplete="off">
+      <p class="hint">Up to 20 characters. Rename the profile folder to match, or the game won't find it.</p>
+    </div>
+
+    <div class="row">
+      <label class="k">Difficulty</label>
+      <div class="seg" id="seg">
+        <button type="button" data-d="0">Normal</button>
+        <button type="button" data-d="1">Hard</button>
+        <button type="button" data-d="2">Elite</button>
+      </div>
+      <div class="perma" id="permaWrap">
+        <input type="checkbox" id="perma">
+        <label for="perma">Permadeath &mdash; failing a mission deletes the profile</label>
+      </div>
+      <p class="hint" id="permaHint">Elite and permadeath need <a href="https://github.com/Joshhhuaaa/EnhancedSC" target="_blank" rel="noopener">Enhanced SC</a>. Stock builds only know Normal and Hard.</p>
+    </div>
+
+    <div class="row">
+      <label class="k" for="prog">Furthest mission unlocked</label>
+      <div class="gauge" id="gauge"></div>
+      <input type="range" id="prog" min="0" max="12" step="1">
+      <div class="legend">
+        <span>Progress <b id="pval">0</b> &mdash; <span id="pcount">1 mission</span></span>
+        <span class="mission" id="pmission"></span>
+      </div>
+    </div>
+
+    <div class="foot">
+      <button class="save" id="save">Download Config.ini</button>
+      <p class="warn quiet" id="warn">Back up the original before you overwrite it.</p>
+    </div>
+
+    <div class="hex">
+      <span><b>0x68</b> difficulty <span id="h68">00</span></span>
+      <span><b>0x7D8</b> progress <span id="h7d8">00</span></span>
+      <span><b>size</b> <span id="hsize">0</span> bytes</span>
+      <span id="hbuild"></span>
+    </div>
+  </div>
+
+  <footer>
+    Progress is the index of the furthest unlocked mission, so <code>0</code> is Training only and
+    <code>11</code> unlocks everything. The map table at <code>0x2C4</code> is static and carries no progress.
+    Everything else in the file is uninitialised memory and is left untouched.
+    <br><br>
+    Elite and permadeath come from <a href="https://github.com/Joshhhuaaa/EnhancedSC" target="_blank" rel="noopener">Enhanced SC</a>,
+    which also writes profiles in its own format. Enhanced SC saves and stock saves are not interchangeable, and each
+    build hides the other's. Setting Elite or permadeath on a stock profile will not make the stock game understand them.
+  </footer>
+</div>
+
+<script>
+const NAME_OFF=0x000, DIFF_OFF=0x068, PROG_OFF=0x7D8, SIZE=2044, MAX_NAME=20;
+const MISSIONS=["Training","Police Station","Defense Ministry","Caspian Oil Refinery","CIA HQ",
+  "Kalinatek","Chinese Embassy I","Abattoir","Chinese Embassy II","Presidential Palace",
+  "Kola Cell","Vselka Infiltration","Vselka Submarine"];
+
+let buf=null, view=null, hasBom=false, oldName="", diff=0;
+
+const $=id=>document.getElementById(id);
+const drop=$("drop"), file=$("file"), panel=$("panel"), err=$("err");
+
+/* ---------- load ---------- */
+drop.addEventListener("click",e=>{e.preventDefault();file.click();});
+drop.addEventListener("keydown",e=>{
+  if(e.key==="Enter"||e.key===" "){e.preventDefault();file.click();}
+});
+["dragenter","dragover"].forEach(t=>drop.addEventListener(t,e=>{
+  e.preventDefault();e.stopPropagation();drop.classList.add("hot");
+}));
+["dragleave","dragend"].forEach(t=>drop.addEventListener(t,e=>{
+  e.preventDefault();drop.classList.remove("hot");
+}));
+drop.addEventListener("drop",e=>{
+  e.preventDefault();e.stopPropagation();drop.classList.remove("hot");
+  const f=e.dataTransfer?.files?.[0];
+  if(f) read(f);
+});
+// the browser opens a dropped file as a page if it lands anywhere else
+["dragover","drop"].forEach(t=>window.addEventListener(t,e=>e.preventDefault()));
+file.addEventListener("change",e=>{
+  const f=e.target.files?.[0];
+  if(f) read(f);
+  e.target.value="";           // so re-picking the same file fires change again
+});
+
+function fail(msg){err.textContent=msg;err.classList.add("on");panel.classList.remove("on");}
+
+function read(f){
+  const r=new FileReader();
+  r.onload=()=>{
+    const b=new Uint8Array(r.result);
+    if(b.length!==SIZE){
+      fail(`That file is ${b.length} bytes. A Splinter Cell profile is exactly ${SIZE}. Wrong file, or a different build.`);
+      return;
+    }
+    err.classList.remove("on");
+    buf=b; view=new DataView(b.buffer);
+    hasBom = b[0]===0xFF && b[1]===0xFE;
+    oldName = readName();
+    diff = view.getUint32(DIFF_OFF,true);
+    $("name").value = oldName;
+    $("prog").value = Math.min(12, view.getUint32(PROG_OFF,true));
+    const known = diff<=4;
+    if(!known) fail(`Difficulty byte reads 0x${diff.toString(16)}, which the game doesn't recognise. Pick one below to repair it.`);
+    paint();
+    panel.classList.add("on");
+  };
+  r.readAsArrayBuffer(f);
+}
+
+function readName(){
+  let o = hasBom?2:0, s="";
+  for(;o<64;o+=2){
+    const c = view.getUint16(o,true);
+    if(c===0) break;
+    s += String.fromCharCode(c);
+  }
+  return s;
+}
+
+/* ---------- edit ---------- */
+$("seg").onclick=e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const base=+b.dataset.d;
+  if(base===0) $("perma").checked=false;      // no known Normal+Permadeath value
+  diff = encode(base, $("perma").checked);
+  paint();
+};
+$("perma").onchange=()=>{ diff = encode(base(), $("perma").checked); paint(); };
+$("prog").oninput=paint;
+$("name").oninput=paint;
+
+function base(){ return diff===3?1 : diff===4?2 : diff<=2?diff : 0; }
+function encode(b,p){ if(!p) return b; return b===1?3 : b===2?4 : b; }
+
+function paint(){
+  const b=base(), p=+$("prog").value, armed=diff===3||diff===4;
+
+  [...$("seg").children].forEach(x=>x.setAttribute("aria-pressed", +x.dataset.d===b));
+  $("perma").checked = armed;
+  $("permaWrap").classList.toggle("armed", armed);
+  $("permaWrap").classList.toggle("off", b===0);
+  $("permaHint").innerHTML = b===0
+    ? "Permadeath has no known value on Normal. Choose Hard or Elite to arm it."
+    : 'Elite and permadeath need <a href="https://github.com/Joshhhuaaa/EnhancedSC" target="_blank" rel="noopener">Enhanced SC</a>. Stock builds only know Normal and Hard.';
+
+  // light gauge: progress N unlocks missions 0..N, so N+1 cells light
+  const g=$("gauge"); g.innerHTML="";
+  for(let i=0;i<13;i++){
+    const cell=document.createElement("i");
+    if(i<=p) cell.className = p>=11 ? "max" : "on";
+    cell.title = `${i}. ${MISSIONS[i]}`;
+    g.appendChild(cell);
+  }
+  $("pval").textContent=p;
+  $("pcount").textContent = `${p+1} mission${p?"s":""}`;
+  $("pmission").textContent = p>=11 ? "All missions unlocked" : `Up to ${MISSIONS[p]}`;
+
+  $("pname").textContent = $("name").value || "unnamed";
+  $("pmeta").textContent = `${hasBom?"stock build profile":"Enhanced SC profile"} · ${diffName()}`;
+  $("warn").textContent = armed
+    ? "Permadeath is armed. One failed mission deletes this profile."
+    : "Back up the original before you overwrite it.";
+  $("warn").classList.toggle("quiet", !armed);
+
+  $("h68").textContent = String(diff).padStart(2,"0");
+  $("h7d8").textContent = String(p).padStart(2,"0");
+  $("hsize").textContent = SIZE;
+  $("hbuild").textContent = hasBom ? "BOM present" : "";
+  $("goggles").classList.toggle("lit", armed || p>=11);
+}
+
+function diffName(){
+  return ["Normal","Hard","Elite","Hard + Permadeath","Elite + Permadeath"][diff] || "unknown";
+}
+
+/* ---------- save ---------- */
+$("save").onclick=()=>{
+  const name=$("name").value.trim();
+  if(!name){ fail("Give the profile a name."); return; }
+  if(name.length>MAX_NAME){ fail(`Names cap at ${MAX_NAME} characters.`); return; }
+  if(/[\\\/:*?"<>|]/.test(name)){ fail('These characters are not allowed: \\ / : * ? " < > |'); return; }
+  err.classList.remove("on");
+
+  // name: clear the old footprint, write the new one, touch nothing beyond it
+  const enc=[]; if(hasBom) enc.push(0xFF,0xFE);
+  for(const ch of name){ const c=ch.charCodeAt(0); enc.push(c&0xFF, c>>8); }
+  enc.push(0,0);
+  const oldLen=(hasBom?2:0)+oldName.length*2+2;
+  const span=Math.max(oldLen, enc.length);
+  for(let i=0;i<span;i++) buf[NAME_OFF+i]=0;
+  for(let i=0;i<enc.length;i++) buf[NAME_OFF+i]=enc[i];
+
+  view.setUint32(DIFF_OFF, diff, true);
+  view.setUint32(PROG_OFF, +$("prog").value, true);
+
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([buf],{type:"application/octet-stream"}));
+  a.download="Config.ini";
+  a.click();
+  URL.revokeObjectURL(a.href);
+
+  oldName=name;
+};
+</script>
+</body>
+</html>
