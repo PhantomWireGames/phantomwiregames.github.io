@@ -1,8 +1,13 @@
 ---
 title: "Reverse Engineering Splinter Cell's Save Format"
 date: 2026-07-12
-tags: [reverse-engineering, splinter-cell, tools]
-summary: "A 2044 byte file, mostly uninitialised memory, and two fields that turned out to matter. How I found the difficulty and progress flags in Splinter Cell's profile format, and built an editor for them."
+dateDisplay: 12 July 2026
+readTime: 6 min read
+tag: article
+tagDisplay: Article
+image: /pages/news/posts/media/SCE_Tool.webp
+imageFallback: /pages/news/posts/media/SCE_Tool.webp
+excerpt: How I found the difficulty and progress flags in Splinter Cell's profile format, and built an editor for them.
 ---
 
 Splinter Cell (2002) stores each player profile in a file called `Config.ini`, tucked away in `Save\<ProfileName>\`. The name is a lie. Open it in a text editor and you get line noise. There are no sections, no keys, no values. It is a binary blob with an INI extension, and it has apparently been sitting there unexamined for twenty four years.

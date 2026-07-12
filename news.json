@@ -99,9 +99,9 @@
       "tag": "article",
       "tagDisplay": "Article",
       "game": null,
-      "excerpt": "A 2044 byte file, mostly uninitialised memory, and two fields that turned out to matter. How I found the difficulty and progress flags in Splinter Cell's profile format, and built an editor for them.",
-      "image": null,
-      "imageFallback": null,
+      "excerpt": "How I found the difficulty and progress flags in Splinter Cell's profile format, and built an editor for them.",
+      "image": "/pages/news/posts/media/SCE_Tool.webp",
+      "imageFallback": "/pages/games/nightshift/Banner.png",
       "featured": true,
       "url": "/pages/news/post.html?slug=reverse-engineering-splinter-cell-saves"
     }
