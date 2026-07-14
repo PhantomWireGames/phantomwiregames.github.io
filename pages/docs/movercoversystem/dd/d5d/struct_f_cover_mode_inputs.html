@@ -122,6 +122,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a3a092f622eb207e38337eb22df07edf8" id="r_a3a092f622eb207e38337eb22df07edf8"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a3a092f622eb207e38337eb22df07edf8">SideWallNormal</a> = FVector::ForwardVector</td></tr>
 <tr class="memitem:a403d03b84e84fe4bdf069eb406c184b1" id="r_a403d03b84e84fe4bdf069eb406c184b1"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a403d03b84e84fe4bdf069eb406c184b1">SideWallRight</a> = FVector::RightVector</td></tr>
 <tr class="memitem:a43c830cb766bae62677591d180dfcb66" id="r_a43c830cb766bae62677591d180dfcb66"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a43c830cb766bae62677591d180dfcb66">bEdgeFloorExists</a> = true</td></tr>
+<tr class="memitem:ac995ec15c655e414de464d76cd9a6f18" id="r_ac995ec15c655e414de464d76cd9a6f18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac995ec15c655e414de464d76cd9a6f18">bGapDetected</a> = false</td></tr>
+<tr class="memitem:abf5cef03dbd4a1e1dff32a464bb3e037" id="r_abf5cef03dbd4a1e1dff32a464bb3e037"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abf5cef03dbd4a1e1dff32a464bb3e037">bWantsGapMovement</a> = false</td></tr>
+<tr class="memitem:ae23118deceb8d2def2227caa817b2274" id="r_ae23118deceb8d2def2227caa817b2274"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae23118deceb8d2def2227caa817b2274">bIsGapSprint</a> = false</td></tr>
+<tr class="memitem:a01eddc6351e85ec2ebe1a57ab7d6d160" id="r_a01eddc6351e85ec2ebe1a57ab7d6d160"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a01eddc6351e85ec2ebe1a57ab7d6d160">GapWallLocation</a> = FVector::ZeroVector</td></tr>
+<tr class="memitem:a76917899e6b908d7f799fba1315599b4" id="r_a76917899e6b908d7f799fba1315599b4"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a76917899e6b908d7f799fba1315599b4">GapWallNormal</a> = FVector::ForwardVector</td></tr>
+<tr class="memitem:aa57f87b5341f74d5eaded083c3b095b9" id="r_aa57f87b5341f74d5eaded083c3b095b9"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#aa57f87b5341f74d5eaded083c3b095b9">GapWallRight</a> = FVector::RightVector</td></tr>
+<tr class="memitem:a8d53316fcad0aff8604217f18ab70a04" id="r_a8d53316fcad0aff8604217f18ab70a04"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a8d53316fcad0aff8604217f18ab70a04">GapDistance</a> = 0.0f</td></tr>
+<tr class="memitem:aee68ad8d1f2a89de55330b6088eebd3e" id="r_aee68ad8d1f2a89de55330b6088eebd3e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aee68ad8d1f2a89de55330b6088eebd3e">bGapArrived</a> = false</td></tr>
 <tr class="memitem:a856ab0b84ce6a65a96c5b391be7356ed" id="r_a856ab0b84ce6a65a96c5b391be7356ed"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a856ab0b84ce6a65a96c5b391be7356ed">CornerPoint</a> = FVector::ZeroVector</td></tr>
 <tr class="memitem:a072acb39bc0ceec147e6da91fae7c12a" id="r_a072acb39bc0ceec147e6da91fae7c12a"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a072acb39bc0ceec147e6da91fae7c12a">CornerWallNormal</a> = FVector::ForwardVector</td></tr>
 <tr class="memitem:a258bda81a4bf87668fe585784eb91904" id="r_a258bda81a4bf87668fe585784eb91904"><td class="memItemLeft">FVector&#160;</td><td class="memItemRight"><a class="el" href="#a258bda81a4bf87668fe585784eb91904">CornerWallRight</a> = FVector::RightVector</td></tr>
@@ -307,6 +315,36 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aee68ad8d1f2a89de55330b6088eebd3e" name="aee68ad8d1f2a89de55330b6088eebd3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee68ad8d1f2a89de55330b6088eebd3e">&#9670;&#160;</a></span>bGapArrived</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FCoverModeInputs::bGapArrived = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set for one tick when gap movement completes. The movement mode uses this to snap rotation instantly to face the new wall rather than interpolating at MaxTurnRate. </p>
+
+</div>
+</div>
+<a id="ac995ec15c655e414de464d76cd9a6f18" name="ac995ec15c655e414de464d76cd9a6f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac995ec15c655e414de464d76cd9a6f18">&#9670;&#160;</a></span>bGapDetected</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FCoverModeInputs::bGapDetected = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether a coverable wall was detected across a gap in the current shimmy direction. When true, the player may press the gap input to move to GapWallLocation. </p>
+
+</div>
+</div>
 <a id="a9f3a11974f91cfd6eb83c81ea1b80b7a" name="a9f3a11974f91cfd6eb83c81ea1b80b7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f3a11974f91cfd6eb83c81ea1b80b7a">&#9670;&#160;</a></span>bHasValidWallAhead</h2>
 
@@ -334,6 +372,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Whether the end of the current wall leads into an outside corner rather than open space. When true, CornerPoint / CornerWallNormal / CornerWallRight are valid and bWantsToGoAroundCorner may be set. </p>
+
+</div>
+</div>
+<a id="ae23118deceb8d2def2227caa817b2274" name="ae23118deceb8d2def2227caa817b2274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae23118deceb8d2def2227caa817b2274">&#9670;&#160;</a></span>bIsGapSprint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FCoverModeInputs::bIsGapSprint = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>True when GapDistance exceeds the sprint threshold - the movement mode sprints rather than spinning. False for short gaps where a spin is used. </p>
 
 </div>
 </div>
@@ -379,6 +432,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Whether a perpendicular wall was detected beside the character on the shimmy side, indicating a concave corner ahead. <a class="el" href="../../df/d81/class_u_cover_walking_mode.html">UCoverWalkingMode</a> transitions the character's facing toward it as they shimmy in. </p>
+
+</div>
+</div>
+<a id="abf5cef03dbd4a1e1dff32a464bb3e037" name="abf5cef03dbd4a1e1dff32a464bb3e037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf5cef03dbd4a1e1dff32a464bb3e037">&#9670;&#160;</a></span>bWantsGapMovement</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FCoverModeInputs::bWantsGapMovement = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>True if the player has pressed the gap input and the movement mode is actively driving the character toward GapWallLocation. Cleared on arrival. </p>
 
 </div>
 </div>
@@ -454,6 +522,66 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Shimmy axis for the new wall: Cross(CornerWallNormal, Up). </p>
+
+</div>
+</div>
+<a id="a8d53316fcad0aff8604217f18ab70a04" name="a8d53316fcad0aff8604217f18ab70a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d53316fcad0aff8604217f18ab70a04">&#9670;&#160;</a></span>GapDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float FCoverModeInputs::GapDistance = 0.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flat 2D distance from the wall edge to the gap wall surface (cm). </p>
+
+</div>
+</div>
+<a id="a01eddc6351e85ec2ebe1a57ab7d6d160" name="a01eddc6351e85ec2ebe1a57ab7d6d160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01eddc6351e85ec2ebe1a57ab7d6d160">&#9670;&#160;</a></span>GapWallLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FVector FCoverModeInputs::GapWallLocation = FVector::ZeroVector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>World-space surface point on the detected gap wall (with standoff applied). </p>
+
+</div>
+</div>
+<a id="a76917899e6b908d7f799fba1315599b4" name="a76917899e6b908d7f799fba1315599b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76917899e6b908d7f799fba1315599b4">&#9670;&#160;</a></span>GapWallNormal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FVector FCoverModeInputs::GapWallNormal = FVector::ForwardVector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Surface normal of the detected gap wall, pointing toward the character. </p>
+
+</div>
+</div>
+<a id="aa57f87b5341f74d5eaded083c3b095b9" name="aa57f87b5341f74d5eaded083c3b095b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57f87b5341f74d5eaded083c3b095b9">&#9670;&#160;</a></span>GapWallRight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FVector FCoverModeInputs::GapWallRight = FVector::RightVector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Shimmy tangent of the detected gap wall: Cross(GapWallNormal, Up). </p>
 
 </div>
 </div>

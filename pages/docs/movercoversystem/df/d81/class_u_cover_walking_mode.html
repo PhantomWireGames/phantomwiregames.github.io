@@ -83,9 +83,9 @@ Inheritance diagram for UCoverWalkingMode:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d2/d01/class_u_cover_walking_mode__inherit__graph.png" border="0" usemap="#a_u_cover_walking_mode_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
 <map name="a_u_cover_walking_mode_inherit__map" id="a_u_cover_walking_mode_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,123,215,405"/>
+<area shape="rect" title=" " alt="" coords="5,123,215,469"/>
 <area shape="rect" title=" " alt="" coords="59,5,161,75"/>
-<area shape="poly" title=" " alt="" coords="113,90,113,123,107,123,107,90"/>
+<area shape="poly" title=" " alt="" coords="113,89,113,123,107,123,107,89"/>
 </map>
 </div>
 <div class="dynheader">
@@ -93,9 +93,9 @@ Collaboration diagram for UCoverWalkingMode:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dd/d11/class_u_cover_walking_mode__coll__graph.png" border="0" usemap="#a_u_cover_walking_mode_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="a_u_cover_walking_mode_coll__map" id="a_u_cover_walking_mode_coll__map">
-<area shape="rect" title=" " alt="" coords="5,123,215,405"/>
+<area shape="rect" title=" " alt="" coords="5,123,215,469"/>
 <area shape="rect" title=" " alt="" coords="59,5,161,75"/>
-<area shape="poly" title=" " alt="" coords="113,90,113,123,107,123,107,90"/>
+<area shape="poly" title=" " alt="" coords="113,89,113,123,107,123,107,89"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -115,11 +115,13 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aa4b51874ced678cfb5e3b41a20d6c797" id="r_aa4b51874ced678cfb5e3b41a20d6c797"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aa4b51874ced678cfb5e3b41a20d6c797">RightEdgePeekDistance</a> = 60.0f</td></tr>
 <tr class="memitem:a630242061875bf84aa9eec505c239f04" id="r_a630242061875bf84aa9eec505c239f04"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a630242061875bf84aa9eec505c239f04">LeftEdgePeekDistance</a> = 60.0f</td></tr>
 <tr class="memitem:a157c5b9f842b81fb3a8b0ba9bba15016" id="r_a157c5b9f842b81fb3a8b0ba9bba15016"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a157c5b9f842b81fb3a8b0ba9bba15016">SnapBackInsetDistance</a> = 20.0f</td></tr>
+<tr class="memitem:a5b3db1665ec6d2f038bc967a47b9f579" id="r_a5b3db1665ec6d2f038bc967a47b9f579"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a5b3db1665ec6d2f038bc967a47b9f579">GapSprintSpeed</a> = 600.0f</td></tr>
+<tr class="memitem:a46b7cb7cb35de7f3251daf14b1c21509" id="r_a46b7cb7cb35de7f3251daf14b1c21509"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a46b7cb7cb35de7f3251daf14b1c21509">GapSpinSpeed</a> = 400.0f</td></tr>
+<tr class="memitem:a58d9ff4060dd32f34264b6c45442f900" id="r_a58d9ff4060dd32f34264b6c45442f900"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a58d9ff4060dd32f34264b6c45442f900">GapSprintThreshold</a> = 200.0f</td></tr>
 <tr class="memitem:a3b9e131ee3dac8df1715a7d951eba009" id="r_a3b9e131ee3dac8df1715a7d951eba009"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3b9e131ee3dac8df1715a7d951eba009">AimStandoffDistance</a> = 30.0f</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mover movement mode that constrains the character to a cover surface.</p>
-<p>Derives from UWalkingMode rather than USimpleWalkingMode or USmoothWalkingMode because those two classes do not export their constructors from the Mover module on Launcher builds, making them impossible to subclass from a separate module without an engine source patch. UWalkingMode exports correctly and provides the full sweep/floor/collision implementation in SimulationTick_Implementation, which this class inherits unchanged.</p>
 <p>Only GenerateMove_Implementation is overridden to replace free 2D walking intent with cover-locked lateral movement, wall depth correction, edge peeking, corner transitions, and wall-facing rotation.</p>
 <p>Requires an <a class="el" href="../../dd/d5d/struct_f_cover_mode_inputs.html">FCoverModeInputs</a> entry in the Mover input collection each tick, written by UMoverCoverComponent::AddCoverInputsToCollection from ProduceInput.</p>
 <p>Register this mode on your MoverComponent with the name matching UMoverCoverComponent::CoverModeName (default: "Cover"). </p>
@@ -271,6 +273,75 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Rate at which lateral velocity decelerates toward zero or the shimmy target (cm/s²). </p>
+
+</div>
+</div>
+<a id="a46b7cb7cb35de7f3251daf14b1c21509" name="a46b7cb7cb35de7f3251daf14b1c21509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b7cb7cb35de7f3251daf14b1c21509">&#9670;&#160;</a></span>GapSpinSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UCoverWalkingMode::GapSpinSpeed = 400.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Speed used when spinning across a short gap (GapDistance &lt; GapSprintThreshold). Applied directly without acceleration (cm/s). </p>
+
+</div>
+</div>
+<a id="a5b3db1665ec6d2f038bc967a47b9f579" name="a5b3db1665ec6d2f038bc967a47b9f579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3db1665ec6d2f038bc967a47b9f579">&#9670;&#160;</a></span>GapSprintSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UCoverWalkingMode::GapSprintSpeed = 600.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Speed used when sprinting across a far gap (GapDistance &gt;= GapSprintThreshold). Applied directly without acceleration so movement starts immediately (cm/s). </p>
+
+</div>
+</div>
+<a id="a58d9ff4060dd32f34264b6c45442f900" name="a58d9ff4060dd32f34264b6c45442f900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d9ff4060dd32f34264b6c45442f900">&#9670;&#160;</a></span>GapSprintThreshold</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UCoverWalkingMode::GapSprintThreshold = 200.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Flat 2D distance threshold that determines spin vs sprint. Gaps shorter than this use GapSpinSpeed, longer use GapSprintSpeed (cm). </p>
 
 </div>
 </div>

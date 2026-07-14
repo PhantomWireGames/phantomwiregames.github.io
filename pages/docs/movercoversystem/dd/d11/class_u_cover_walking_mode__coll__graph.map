@@ -1,5 +1,5 @@
 <map id="UCoverWalkingMode" name="UCoverWalkingMode">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,215,405"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,215,469"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="59,5,161,75"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,90,113,123,107,123,107,90"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,89,113,123,107,123,107,89"/>
 </map>
