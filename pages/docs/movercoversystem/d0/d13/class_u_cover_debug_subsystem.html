@@ -28,7 +28,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mover Cover System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Mover Cover System<span id="projectnumber">&#160;1.1</span>
    </div>
    <div id="projectbrief">Cover system for Unreal Engine&#39;s Mover</div>
   </td>
@@ -83,7 +83,7 @@ Inheritance diagram for UCoverDebugSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d40/class_u_cover_debug_subsystem__inherit__graph.png" border="0" usemap="#a_u_cover_debug_subsystem_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
 <map name="a_u_cover_debug_subsystem_inherit__map" id="a_u_cover_debug_subsystem_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,123,164,320"/>
+<area shape="rect" title=" " alt="" coords="5,123,164,341"/>
 <area shape="rect" title=" " alt="" coords="24,5,145,75"/>
 <area shape="poly" title=" " alt="" coords="87,90,87,123,82,123,82,90"/>
 </map>
@@ -93,7 +93,7 @@ Collaboration diagram for UCoverDebugSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/d94/class_u_cover_debug_subsystem__coll__graph.png" border="0" usemap="#a_u_cover_debug_subsystem_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="a_u_cover_debug_subsystem_coll__map" id="a_u_cover_debug_subsystem_coll__map">
-<area shape="rect" title=" " alt="" coords="5,123,164,320"/>
+<area shape="rect" title=" " alt="" coords="5,123,164,341"/>
 <area shape="rect" title=" " alt="" coords="24,5,145,75"/>
 <area shape="poly" title=" " alt="" coords="87,90,87,123,82,123,82,90"/>
 </map>
@@ -107,7 +107,7 @@ Classes</h2></td></tr>
 Public Types</h2></td></tr>
 <tr class="memitem:a0553b884f1987ed6d1c0f459df20a864" id="r_a0553b884f1987ed6d1c0f459df20a864"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a0553b884f1987ed6d1c0f459df20a864">ECoverType</a> : uint8 { <a class="el" href="#a0553b884f1987ed6d1c0f459df20a864abbd47109890259c0127154db1af26c75">Full</a>
 , <a class="el" href="#a0553b884f1987ed6d1c0f459df20a864ac48615a1bc4197056d522af276aa5a85">Half</a>
-, <a class="el" href="#a0553b884f1987ed6d1c0f459df20a864ae032ca443059f7128a9b783913358bc9">TooLow</a>
+, <a class="el" href="#a0553b884f1987ed6d1c0f459df20a864a6f913bfc274eeac0513226eea1aa3613">NonCoverable</a>
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -123,6 +123,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae3103bb5291192ab192a9c899189aa5c" id="r_ae3103bb5291192ab192a9c899189aa5c"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ae3103bb5291192ab192a9c899189aa5c">HeadTraceHeight</a> = 170.0f</td></tr>
 <tr class="memitem:a83f2ecc6b454889bf1f5678cef702edc" id="r_a83f2ecc6b454889bf1f5678cef702edc"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a83f2ecc6b454889bf1f5678cef702edc">ScanRadius</a> = 5000.0f</td></tr>
 <tr class="memitem:a54ad83d0a5ad61b32dbe34ca71c36760" id="r_a54ad83d0a5ad61b32dbe34ca71c36760"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a54ad83d0a5ad61b32dbe34ca71c36760">SampleSpacing</a> = 100.0f</td></tr>
+<tr class="memitem:ac69948fa7bf34cba8a06b81c3b12cbd1" id="r_ac69948fa7bf34cba8a06b81c3b12cbd1"><td class="memItemLeft">FName&#160;</td><td class="memItemRight"><a class="el" href="#ac69948fa7bf34cba8a06b81c3b12cbd1">NonCoverableTag</a> = TEXT(&quot;NonCoverable&quot;)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>EXPERIMENTAL</p>
@@ -158,7 +159,7 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0553b884f1987ed6d1c0f459df20a864ac48615a1bc4197056d522af276aa5a85" name="a0553b884f1987ed6d1c0f459df20a864ac48615a1bc4197056d522af276aa5a85"></a>Half&#160;</td><td class="fielddoc"><p>Yellow — surface top &gt;= HeadTraceHeight * 0.5. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0553b884f1987ed6d1c0f459df20a864ae032ca443059f7128a9b783913358bc9" name="a0553b884f1987ed6d1c0f459df20a864ae032ca443059f7128a9b783913358bc9"></a>TooLow&#160;</td><td class="fielddoc"><p>Red — surface top &lt; HeadTraceHeight * 0.5. </p>
+<tr><td class="fieldname"><a id="a0553b884f1987ed6d1c0f459df20a864a6f913bfc274eeac0513226eea1aa3613" name="a0553b884f1987ed6d1c0f459df20a864a6f913bfc274eeac0513226eea1aa3613"></a>NonCoverable&#160;</td><td class="fielddoc"><p>Red — component has NonCoverableTag. </p>
 </td></tr>
 </table>
 
@@ -309,6 +310,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Height threshold used to classify full vs half cover, in cm. Match this to HeadTraceHeight on UMoverCoverComponent for consistent results. </p>
+
+</div>
+</div>
+<a id="ac69948fa7bf34cba8a06b81c3b12cbd1" name="ac69948fa7bf34cba8a06b81c3b12cbd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69948fa7bf34cba8a06b81c3b12cbd1">&#9670;&#160;</a></span>NonCoverableTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FName UCoverDebugSubsystem::NonCoverableTag = TEXT(&quot;NonCoverable&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Component tag checked during scanning. Surfaces with this tag are highlighted red regardless of height. Should match NonCoverableTag on UMoverCoverComponent. </p>
 
 </div>
 </div>
