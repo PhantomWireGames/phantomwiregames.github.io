@@ -79,6 +79,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d10/referen
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="ref_widget"></a>
 IconTextWidget</h1>
 <p>Displays a single icon looked up by name from an <span class="tt">IconGlyphTable</span>. <span class="tt">/EasyIconFont/WBP_Icon</span> is a ready-to-use Blueprint built on this - drop it straight into your UI and set <span class="tt">GlyphName</span>, no further setup needed. To build your own on top of the base class instead, it requires a UMG Text Block named exactly <span class="tt">IconText</span> (BindWidget); an Image named <span class="tt">IconImage</span> is optional, only needed if the table has any Texture-type rows.</p>
+<div class="image">
+<img src="../../IconTextWidget_Details.png" alt=""/>
+<div class="caption">
+WBP_Icon's Details panel showing GlyphName, IconGlyphTable, and IconFontStyle</div></div>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Property  </th><th class="markdownTableHeadNone">Purpose  </th></tr>
@@ -95,6 +99,10 @@ IconRichTextDecorator</h1>
 <p>Lets a <span class="tt">RichTextBlock</span> show icons inline with text:</p>
 <div class="fragment"><div class="line">Press &lt;icon <span class="keywordtype">id</span>=<span class="stringliteral">&quot;icon_jump&quot;</span> size=<span class="stringliteral">&quot;48&quot;</span> color=<span class="stringliteral">&quot;#FF3B30&quot;</span>/&gt; to jump!</div>
 </div><!-- fragment --><p><span class="tt">/EasyIconFont/EasyIconFont_RichTextDecorator</span> is a ready-to-use instance already pointed at the plugin's DataTable and font - just add it to a <span class="tt">RichTextBlock</span>'s Decorators array. To configure your own instead, assign <span class="tt">IconGlyphTable</span>/<span class="tt">IconFontStyle</span> the same way as on an IconTextWidget.</p>
+<div class="image">
+<img src="../../RichText_Markup_Result.png" alt=""/>
+<div class="caption">
+Inline icon markup next to the rendered result</div></div>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Attribute  </th><th class="markdownTableHeadNone">Required  </th><th class="markdownTableHeadNone">Purpose  </th></tr>

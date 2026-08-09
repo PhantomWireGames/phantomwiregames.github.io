@@ -78,7 +78,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d52/trouble
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="trouble_tofu"></a>
 Icon Shows a "Private Use" Placeholder Box</h1>
-<p>This means the codepoint isn't resolving to a real glyph where it's being displayed, even though the font file itself may be fine. Most common cause: the <span class="tt">FontFace</span> asset's source path has drifted from the font file you're actually editing. Right-click the <span class="tt">FontFace</span> asset and <b>Reimport</b> manually to force it to re-read the current file.</p>
+<p>This means the codepoint isn't resolving to a real glyph where it's being displayed, even though the font file itself may be fine.</p>
+<p>Most common cause: the <span class="tt">FontFace</span> asset's source path has drifted from the font file you're actually editing. This happens automatically the first time the plugin is used in a NEW project - the <span class="tt">FontFace</span> asset ships bundled with the plugin, and its recorded source path is whatever was true in the project it was ORIGINALLY created in, which is meaningless anywhere else.</p>
+<p><b>Try</b> this first: click <b>Setup</b>. It now automatically points <span class="tt">EasyIconFontFace</span> at this project's own font file as one of its steps, which resolves this exact situation in most cases without anything manual.</p>
+<p><b>If</b> that doesn't fix it: right-click the <span class="tt">FontFace</span> asset in the Content Browser and <b>Reimport</b> manually to force it to re-read the current file. Worth doing after any Add Icon too if a newly added icon isn't showing up, in case the asset's source path is pointing somewhere unexpected for a reason Setup's automatic fix doesn't cover.</p>
+<div class="image">
+<img src="../../Tofu_Placeholder.png" alt=""/>
+<div class="caption">
+The broken placeholder box shown when a codepoint doesn't resolve</div></div>
 <h1 class="doxsection"><a class="anchor" id="trouble_reset"></a>
 Icons Disappeared After a Plugin Update</h1>
 <p>The plugin ships a blank template font (<span class="tt">EasyIconFont_Blank.ttf</span>) that's safe to overwrite on every update. Your actual working font (<span class="tt">EasyIconFont.ttf</span>) is never shipped in an update, so it shouldn't be possible for an update to silently reset it. If it still does not exist, click <b>Setup</b> to recreate it from the template.</p>

@@ -79,6 +79,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d67/howto_p
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="howto_open"></a>
 Opening the Tool</h1>
 <p>Click the <b>Icon Font</b> button on the level editor toolbar, or open it from <b>Window &gt; Easy Icon Font</b> if the toolbar button isn't visible on your layout.</p>
+<div class="image">
+<img src="../../Toolbar_IconFontButton.png" alt=""/>
+<div class="caption">
+The Icon Font button on the level editor toolbar</div></div>
 <h1 class="doxsection"><a class="anchor" id="howto_setup"></a>
 Running Setup</h1>
 <p>The status light at the top of the window shows whether the tool is ready to use:</p>
@@ -86,7 +90,11 @@ Running Setup</h1>
 <li><b>Green</b> - required Python packages are installed and the working font file exists.</li>
 <li><b>Red</b> - hover the light for exactly what's missing.</li>
 </ul>
-<p>Click <b>Setup</b> to fix both in one step: it installs any missing packages (fontTools, numpy, scikit-image, Pillow) into UE's embedded Python interpreter, and creates <span class="tt">Resources/EasyIconFont.ttf</span> from the bundled blank template if it doesn't exist yet. This can take a minute or two the first time and will freeze the editor UI while it runs.</p>
+<p>Click <b>Setup</b> to fix all of this in one step: it installs any missing packages (fontTools, numpy, scikit-image, Pillow) into UE's embedded Python interpreter, creates <span class="tt">Resources/EasyIconFont.ttf</span> from the bundled blank template if it doesn't exist yet, and points the <span class="tt">EasyIconFontFace</span> asset at that file - the last part matters most the first time you use the plugin in a new project, see <a class="el" href="../../d0/d52/troubleshooting_page.html#trouble_tofu" title="Icon Shows a &quot;Private Use&quot; Placeholder Box">Icon Shows a Private Use Placeholder Box</a> if you ever see that happen. This can take a minute or two the first time and will freeze the editor UI while it runs.</p>
+<div class="image">
+<img src="../../Window_StatusLight.png" alt=""/>
+<div class="caption">
+The status light and Setup button, red and green examples</div></div>
 <h1 class="doxsection"><a class="anchor" id="howto_addicon"></a>
 Adding an Icon</h1>
 <p>Fill in the fields and click <b>Add Icon</b>:</p>
@@ -108,6 +116,10 @@ Adding an Icon</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Glyph type  </td><td class="markdownTableBodyNone">Auto, Mono Vector, Color Vector, or Texture - see below  </td></tr>
 </table>
+<div class="image">
+<img src="../../Window_AddIconFields.png" alt=""/>
+<div class="caption">
+The full field stack filled in with example values</div></div>
 <h2 class="doxsection"><a class="anchor" id="howto_glyphtype"></a>
 Glyph Type</h2>
 <ul>
@@ -116,12 +128,24 @@ Glyph Type</h2>
 <li><b>Color Vector</b> - a flat, limited-palette raster source, traced and rebuilt as a multi-layer COLR/CPAL glyph. Still infinitely scalable, but its color is baked in rather than tinted.</li>
 <li><b>Texture</b> - a plain <span class="tt">UTexture2D</span> import, for source art that doesn't vectorize cleanly (gradients, photographic detail).</li>
 </ul>
+<div class="image">
+<img src="../../Window_GlyphTypeDropdown.png" alt=""/>
+<div class="caption">
+The Glyph Type dropdown open, showing all four options</div></div>
 <h1 class="doxsection"><a class="anchor" id="howto_preview"></a>
 Reading the Preview Bar</h1>
 <p>The strip along the bottom shows every icon currently registered against the font in the Font file field, read live from its <span class="tt">.codepoints.json</span> registry sidecar. Click any icon there to fill the Glyph name field with its name, instead of retyping it.</p>
+<div class="image">
+<img src="../../Window_PreviewBar.png" alt=""/>
+<div class="caption">
+The preview bar showing Mono Vector, Color Vector, and Texture icons</div></div>
 <h1 class="doxsection"><a class="anchor" id="howto_remove"></a>
 Removing an Icon</h1>
 <p>Type or click an icon's name into Glyph name, then click <b>Remove Icon</b>. For Mono/Color Vector icons this strips the glyph out of the font entirely (cmap entry, outline, and - for Color Vector - every layer glyph). For Texture icons it only unregisters the entry; the actual texture asset is left alone.</p>
+<div class="image">
+<img src="../../Window_RemoveIcon.png" alt=""/>
+<div class="caption">
+Glyph name filled in via a preview click, ready for Remove Icon</div></div>
 <h1 class="doxsection"><a class="anchor" id="howto_firsttime"></a>
 What's Already Set Up</h1>
 <p>The plugin ships with everything wired and ready to go - nothing needs creating from scratch:</p>
