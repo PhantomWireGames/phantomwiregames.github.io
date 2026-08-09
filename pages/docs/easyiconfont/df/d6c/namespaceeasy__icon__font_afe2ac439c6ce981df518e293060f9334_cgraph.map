@@ -1,0 +1,17 @@
+<map id="easy_icon_font.add_texture_icon" name="easy_icon_font.add_texture_icon">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,139,81"/>
+<area shape="rect" id="Node000002" href="$df/d6c/namespaceeasy__icon__font.html#abe5a2129f0a0e480a32baeec4913011b" title=" " alt="" coords="187,72,349,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,69,171,74,171,79,139,74"/>
+<area shape="rect" id="Node000007" href="$df/d6c/namespaceeasy__icon__font.html#ae6dd9e92cb5d4ac670673f900301300c" title=" " alt="" coords="194,5,342,48"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="139,46,178,39,179,44,140,51"/>
+<area shape="rect" id="Node000003" href="$df/d6c/namespaceeasy__icon__font.html#a58beb73357ca02cc55479c42eed7687b" title=" " alt="" coords="398,5,541,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,69,388,51,389,56,335,74"/>
+<area shape="rect" id="Node000006" href="$df/d6c/namespaceeasy__icon__font.html#aac00196500ad33de3ed88cad85dda059" title=" " alt="" coords="397,72,542,115"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="350,91,381,91,381,96,350,96"/>
+<area shape="rect" id="Node000004" href="$df/d6c/namespaceeasy__icon__font.html#a4d6829689b7254832a52e7c8e5dffa08" title=" " alt="" coords="606,5,769,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="541,24,591,24,591,29,541,29"/>
+<area shape="rect" id="Node000005" href="$df/d6c/namespaceeasy__icon__font.html#ab6db899d22724486fe75a689fcd39298" title=" " alt="" coords="590,76,785,103"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="542,45,625,69,623,74,541,50"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="543,89,575,89,575,94,543,95"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="342,24,383,24,383,29,342,29"/>
+</map>

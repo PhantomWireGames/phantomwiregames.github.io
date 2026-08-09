@@ -87,7 +87,8 @@
   <nav class="docs-sidebar">
     <div>
       <div class="docs-sidebar-label">Plugins</div>
-      <button class="docs-sidebar-item active" onclick="loadDocs('movercoversystem', this)">MoverCoverSystem</button>
+      <button class="docs-sidebar-item active" data-slug="movercoversystem" onclick="loadDocs('movercoversystem', this)">Mover Cover System</button>
+      <button class="docs-sidebar-item" data-slug="easyiconfont" onclick="loadDocs('easyiconfont', this)">Easy Icon Font</button>
     </div>
     <div style="margin-top:auto;">
       <div class="docs-sidebar-label">Tools</div>
@@ -114,7 +115,17 @@ function loadDocs(slug, btn) {
   });
   btn.classList.add('active');
   document.getElementById('docs-iframe').src = '/pages/docs/' + slug + '/index.html';
+  var url = new URL(window.location.href);
+  url.searchParams.set('doc', slug);
+  history.replaceState(null, '', url);
 }
+
+(function initDocFromUrl() {
+  var slug = new URLSearchParams(window.location.search).get('doc');
+  if (!slug) return;
+  var btn = document.querySelector('.docs-sidebar-item[data-slug="' + slug + '"]');
+  if (btn) loadDocs(slug, btn);
+})();
 </script>
 </body>
 </html>

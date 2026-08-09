@@ -1,0 +1,5 @@
+<map id="UIconTextWidget" name="UIconTextWidget">
+<area shape="rect" id="Node000001" title="Displays a single icon looked up by name from IconGlyphTable." alt="" coords="5,123,168,299"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="42,5,131,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,90,89,123,84,123,84,90"/>
+</map>
